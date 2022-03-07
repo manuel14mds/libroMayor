@@ -1,24 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script lang="javascript" src="./script.js" ></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/style.css">
     <title>Cuentas T</title>
 </head>
-<style>
-    .container{
-        background-color: aqua;
-        padding: 4em;
-    }
-</style>
+
 <body>
+    
+
     <div class="container">
         <h2>Simulador de Cuentas T de contabilidad</h2>
-        <p>Este proyecto pretende simular el comportamiento de las cuentas T de contabilidad, con opciones de debitar, acreditar y saldar cuentas</p>
-        <p>Se aplican los conceptos de clases, objetos, clases, arrays, funciones de orden superior, metodos de busquedas pedidos en la consigna del desafio</p>
+        <p>Este proyecto pretende simular el comportamiento de las cuentas T de contabilidad, con opciones de debitar,
+            acreditar y saldar cuentas</p>
+        <p>Se aplican los conceptos de clases, objetos, clases, arrays, funciones de orden superior, metodos de
+            busquedas pedidos en la consigna del desafio</p>
         <p>Manuel Esteban Florez Lopez</p>
     </div>
+
+<!-- ejemplo componente 01 -->
+    <div>
+        <div class="accordion uno" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                            data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            5'000.000
+                        </button>
+                    </h2>
+                </div>
+
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                    data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div>
+                            <td>Codigo: 109</td>
+                        </div>
+                        <div>
+                            <td>Fecha: 10 mayo 2022</td>
+                        </div>
+                        <div>
+                            <td>Descripcion: compra de maquinaria </td>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                            data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            300.000
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Some placeholder content for the second accordion panel. This panel is hidden by default.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                            data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            1.500
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        And lastly, the placeholder content for the third and final accordion panel. This panel is
+                        hidden by default.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dos">
+        <div class="tittle">
+            <p>debito</p>
+        </div>
+
+        <div class="output col"></div>
+
+        <div class="saldoDebito col">
+            <p class="tituloSaldo">saldo debito:</p>
+            <p>5'301.500</p>
+        </div>
+    </div>
+    
+    <div class="tres">
+        <div class="encabezado">
+            <div class="codigo">
+                <label>1105</label>
+            </div>
+            <div class="nombre">
+                <label>CAJA</label>
+            </div>
+        </div>
+
+        <div class="contenido row">
+            <div class="ladoDebito col"></div>
+            <div class="ladoCredito col"></div>
+        </div>
+
+        <div class="saldoTotal">
+            <p class="titulo">Saldo Total:</p>
+            <p class="saldo">5'300.000</p>
+        </div>
+    </div>
+
+    <div class="prueba">
+        <div class="tres">
+            <div class="encabezado">
+                <div class="codigo">
+                    <label>1105</label>
+                </div>
+                <div class="nombre">
+                    <label>CAJA</label>
+                </div>
+            </div>
+    
+            <div class="contenido row">
+                <div class="ladoDebito col">
+                    <div class="dos">
+                        <div class="tittle">
+                            <p>debito</p>
+                        </div>
+                
+                        <div class="output col">
+                            <div class="accordion uno" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                                                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                5'000.000
+                                            </button>
+                                        </h2>
+                                    </div>
+                    
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                                        data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div>
+                                                <td>Codigo: 109</td>
+                                            </div>
+                                            <div>
+                                                <td>Fecha: 10 mayo 2022</td>
+                                            </div>
+                                            <div>
+                                                <td>Descripcion: compra de maquinaria </td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingTwo">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                300.000
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            Some placeholder content for the second accordion panel. This panel is hidden by default.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingThree">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                1.500
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            And lastly, the placeholder content for the third and final accordion panel. This panel is
+                                            hidden by default.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="saldoDebito col">
+                            <p class="tituloSaldo">saldo debito:</p>
+                            <p>5'301.500</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ladoCredito col">
+                    <div class="dos">
+                        <div class="tittle">
+                            <p>Credito</p>
+                        </div>
+                
+                        <div class="output col">
+                            <div class="accordion uno" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                                                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                5'000.000
+                                            </button>
+                                        </h2>
+                                    </div>
+                    
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                                        data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div>
+                                                <td>Codigo: 109</td>
+                                            </div>
+                                            <div>
+                                                <td>Fecha: 10 mayo 2022</td>
+                                            </div>
+                                            <div>
+                                                <td>Descripcion: compra de maquinaria </td>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingTwo">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                300.000
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            Some placeholder content for the second accordion panel. This panel is hidden by default.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingThree">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                1.500
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            And lastly, the placeholder content for the third and final accordion panel. This panel is
+                                            hidden by default.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="saldoDebito col">
+                            <p class="tituloSaldo">saldo credito:</p>
+                            <p>5'301.500</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="saldoTotal">
+                <p class="titulo">Saldo Total:</p>
+                <p class="saldo">5'300.000</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="mostrar">
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+
+
+    <script lang="javascript" src="./scripts/scripts.js"></script>
 </body>
+
 </html>

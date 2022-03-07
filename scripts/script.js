@@ -147,11 +147,13 @@ function buscarCodigo(codigo, lista){//me devuelve un boolean si encuentra o no 
 }
 
 function obtenerCuenta(codigo){// me devuelve el objeto de una lista de cuentas
+    console.log("entro a cbusacr cuenta")
     let grupoCuenta = codigo.charAt(0)
     switch (grupoCuenta) {
         case "1":
             for(elemento of activos){
                 if(elemento.codigo == codigo){
+                    console.log("elemento: "+elemento.codigo)
                     return elemento
                 }
             }
@@ -343,10 +345,10 @@ const ingresos = []
 const gastos = []
 // Creacion lista de cuentas de costo de ventas
 const costos = []
-
-
-
 // por el momento solo se registrará la transacciones que involucren dos cuentas
+
+
+
 let registroNuevo = crearRegistro(10000, "prestamo de efectivo en el banco")//creo un registro
 console.log(registroNuevo)
 let cuentaA = obtenerCuenta("11")// busco una cuenta ya creada
@@ -364,6 +366,37 @@ console.table(gastos)// muestro las de gastos
 
 listarCuentasTrans()// listo las cuentas que ya tienen movimientos
 
+function armar(codigoCuenta, nombreCuenta, saldoTotal){
+    let string = `
+    <div class="tres">
+            <div class="encabezado">
+                <div class="codigo">
+                    <label>${codigoCuenta}</label>
+                </div>
+                <div class="nombre">
+                    <label>${nombreCuenta}</label>
+                </div>
+            </div>
+    
+            <div class="contenido row">
+                <div class="ladoDebito col"></div>
+                <div class="ladoCredito col"></div>
+            </div>
+    
+            <div class="saldoTotal">
+                <p class="titulo">Saldo Total:</p>
+                <p class="saldo">${saldoTotal}</p>
+            </div>
+        </div>
+    
+    `
+    return string
+}
+let cuenta = obtenerCuenta(prompt("Digite cuenta"))
 
-
+let contenedorMostrar = document.querySelector("#mostrar")
+console.log(contenedorMostrar)
+let nombreHTML = document.createElement("p")
+nombreHTML.innerHTML= armar(cuenta.codigo, cuenta.nombre, cuenta.saldoTotal)
+contenedorMostrar.appendChild(nombreHTML)
 

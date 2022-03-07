@@ -1,0 +1,135 @@
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: lightgreen;
+}
+
+body .container {
+  background-color: aqua;
+  padding: 4em;
+}
+
+body .uno {
+  background-color: beige;
+}
+
+body .uno .card .card-header h2 button {
+  text-align: right !important;
+}
+
+body .dos {
+  background-color: aqua;
+  border: 3px solid gray;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body .dos .tittle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2px;
+  font-size: 20px;
+  height: 30px;
+}
+
+body .dos .output {
+  background-color: lightblue;
+  height: 200px;
+  overflow-y: scroll;
+  margin: 0px;
+  padding: 0px;
+}
+
+body .dos .saldoDebito {
+  height: 70px;
+  text-align: right;
+  font-size: 15px;
+}
+
+body .dos .saldoDebito .tituloSaldo {
+  text-align: left;
+  font-size: 17px;
+}
+
+body .tres {
+  background-color: azure;
+  border: 3px solid black;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .tres .encabezado {
+  text-align: center;
+  background-color: bisque;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .tres .encabezado .codigo {
+  font-size: 16px;
+}
+
+body .tres .encabezado .codigo label {
+  margin: 0;
+  padding: 10px 0px 0px 0px;
+  border: 0;
+}
+
+body .tres .encabezado .nombre {
+  font-size: 19px;
+}
+
+body .tres .contenido {
+  height: 300px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body .tres .contenido .ladoDebito {
+  background-color: aquamarine;
+  height: 100%;
+  padding: 0;
+}
+
+body .tres .contenido .ladoCredito {
+  background-color: cadetblue;
+  height: 100%;
+  padding: 0;
+}
+
+body .tres .saldoTotal {
+  background-color: bisque;
+  text-align: center;
+}
+
+body .tres .saldoTotal .titulo {
+  font-size: 20px;
+}
+
+body .tres .saldoTotal .saldo {
+  text-align: left;
+  padding-left: 10px;
+}
+/*# sourceMappingURL=style.css.map */

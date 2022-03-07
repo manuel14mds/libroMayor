@@ -1,0 +1,110 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: lightgreen;
+
+    .container {
+        background-color: aqua;
+        padding: 4em;
+    }
+    .uno{
+        background-color: beige;
+
+        .card{
+            .card-header{
+                h2{
+                    button{
+                        text-align: right !important;
+                    }
+                }
+            }
+        }
+    }
+    .dos {
+        background-color: aqua;
+        border: 3px solid gray;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+        .tittle{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2px;
+            font-size: 20px;
+            height: 30px;
+        }
+
+        .output {
+            background-color: lightblue;
+            height: 200px;
+            overflow-y: scroll;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .saldoDebito{
+            height: 70px;
+            text-align: right;
+            font-size: 15px;
+            .tituloSaldo{
+                text-align: left;
+                font-size: 17px;
+            }
+        }
+    }
+    .tres{
+        background-color: azure;
+        border: 3px solid black;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+
+        .encabezado{
+            text-align: center;
+            background-color: bisque;
+            display: flex;
+            flex-direction: column;
+            .codigo{
+                font-size: 16px;
+                label{
+                    margin: 0;
+                    padding: 10px 0px 0px 0px;
+                    border: 0;
+                }
+            }
+            .nombre{
+                font-size: 19px;
+            }
+        }
+        .contenido{
+            height: 300px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            .ladoDebito{
+                background-color: aquamarine;
+                height: 100%;
+                padding: 0;
+            }
+            .ladoCredito{
+                background-color: cadetblue;
+                height: 100%;
+                padding: 0;
+            }
+        }
+        .saldoTotal{
+            background-color: bisque;
+            text-align: center;
+            .titulo{
+                font-size: 20px;
+            }
+            .saldo{
+                text-align: left;
+                padding-left: 10px;
+            }
+        }
+    }
+}
