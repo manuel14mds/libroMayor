@@ -1,110 +1,219 @@
+/* 
+
+
+*/
+$color1: #93B5C6;
+$color2: #C9CCD5;
+$color3: #E4D8DC;
+$color4: #FFE3E3;
+$color5: #979797;
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
 body {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     background-color: lightgreen;
-
-    .container {
-        background-color: aqua;
-        padding: 4em;
+    header{
+        background-color: aliceblue;
     }
-    .uno{
-        background-color: beige;
 
-        .card{
-            .card-header{
-                h2{
-                    button{
-                        text-align: right !important;
+    main{
+        background-color: whitesmoke;
+        #mostrarCuenta{
+            background-color: $color5;
+            height: 600px;
+            padding: 1rem;
+            h1{
+                text-align: center;
+            }
+            p{
+                text-align: center;
+            }
+            form{
+                background-color: $color1;
+                label{
+                    text-align: center;
+                }
+            }
+
+            .cuenta{
+                background-color: azure;
+                border: 3px solid black;
+                border-radius: 4px;
+                display: flex;
+                flex-direction: column;
+
+                .encabezado{
+                    text-align: center;
+                    background-color: whitesmoke;
+                    display: flex;
+                    flex-direction: column;
+                    .codigo{
+                        font-size: 1rem;
+                        label{
+                            margin: 0;
+                            padding: 10px 0px 0px 0px;
+                            border: 0;
+                        }
+                    }
+                    .nombre{
+                        font-size: 1rem;
+                    }
+                }
+                .contenido{
+                    height: 300px;
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
+                    .ladoDebito{
+                        background-color: aquamarine;
+                        height: 100%;
+                        padding: 0;
+                        /* ContenedorRegisto antiguo 2 */
+
+                        .contenedorRegistro {
+                            background-color: $color1;
+                            border: 3px solid gray;
+                            width: 100%;
+                            margin: 0;
+                            padding: 0;
+                    
+                            .tittle{
+                                display: flex;
+                                justify-content: center;
+                                align-items: auto;
+                                padding: 2px;
+                                font-size: 1.1rem;
+                                height: 30px;
+                            }
+                            /* Lista de registros debito */
+                            .output {
+                                background-color: $color2;
+                                height: 200px;
+                                overflow-y: scroll;
+                                margin: 0px;
+                                padding: 0px;
+                                .listaRegistros{
+                                    background-color: beige;
+                            
+                                    .card{
+                                        .card-header{
+                                            height: 40px;
+                                            padding: 6px;
+                                            h2{
+                                                button{
+                                                    text-align: right !important;
+                                                    
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                    
+                            .saldoDebito{
+                                height: 70px;
+                                text-align: right;
+                                font-size: 15px;
+                                .tituloSaldo{
+                                    text-align: left;
+                                    font-size: 17px;
+                                }
+                            }
+                        }
+                    }
+                    .ladoCredito{
+                        background-color: cadetblue;
+                        height: 100%;
+                        padding: 0;
+                        /* ContenedorRegisto antiguo 2 */
+
+                        .contenedorRegistro {
+                            background-color: $color4;
+                            border: 3px solid gray;
+                            width: 100%;
+                            margin: 0;
+                            padding: 0;
+                    
+                            .tittle{
+                                display: flex;
+                                justify-content: center;
+                                align-items: auto;
+                                padding: 2px;
+                                font-size: 1.1rem;
+                                height: 30px;
+                            }
+
+
+                            /* Lista de registros credito */
+                            .output {
+                                background-color: $color3;
+                                height: 200px;
+                                overflow-y: scroll;
+                                margin: 0px;
+                                padding: 0px;
+
+                                .listaRegistros{
+                                    background-color: beige;
+                            
+                                    .card{
+                                        .card-header{
+                                            height: 40px;
+                                            padding: 6px;
+                                            h2{
+                                                button{
+                                                    text-align: right !important;
+                                                    
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                    
+                            .saldoCredito{
+                                height: 70px;
+                                text-align: right;
+                                font-size: 15px;
+                                .tituloSaldo{
+                                    text-align: left;
+                                    font-size: 17px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .saldoTotal{
+                    background-color: whitesmoke;
+                    text-align: center;
+                    padding: 0px;
+                    
+                    .titulo{
+                        margin: 0px;
+                        font-size: 1rem;
+                        padding-top: 3px;
+                    }
+                    div{
+                        width: 100%;
+                        margin: 0px;
+                        .saldoIzquierda{
+                            text-align: center;
+                            padding-left: 10px;
+                        }
+                        .saldoDerecha{
+                            text-align: center;
+                            padding-right: 10px;
+                        }
                     }
                 }
             }
         }
     }
-    .dos {
-        background-color: aqua;
-        border: 3px solid gray;
-        width: 100%;
-        margin: 0;
-        padding: 0;
 
-        .tittle{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2px;
-            font-size: 20px;
-            height: 30px;
-        }
-
-        .output {
-            background-color: lightblue;
-            height: 200px;
-            overflow-y: scroll;
-            margin: 0px;
-            padding: 0px;
-        }
-
-        .saldoDebito{
-            height: 70px;
-            text-align: right;
-            font-size: 15px;
-            .tituloSaldo{
-                text-align: left;
-                font-size: 17px;
-            }
-        }
+    footer{
+        background-color: aliceblue;
     }
-    .tres{
-        background-color: azure;
-        border: 3px solid black;
-        border-radius: 4px;
-        display: flex;
-        flex-direction: column;
 
-        .encabezado{
-            text-align: center;
-            background-color: bisque;
-            display: flex;
-            flex-direction: column;
-            .codigo{
-                font-size: 16px;
-                label{
-                    margin: 0;
-                    padding: 10px 0px 0px 0px;
-                    border: 0;
-                }
-            }
-            .nombre{
-                font-size: 19px;
-            }
-        }
-        .contenido{
-            height: 300px;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            .ladoDebito{
-                background-color: aquamarine;
-                height: 100%;
-                padding: 0;
-            }
-            .ladoCredito{
-                background-color: cadetblue;
-                height: 100%;
-                padding: 0;
-            }
-        }
-        .saldoTotal{
-            background-color: bisque;
-            text-align: center;
-            .titulo{
-                font-size: 20px;
-            }
-            .saldo{
-                text-align: left;
-                padding-left: 10px;
-            }
-        }
-    }
 }

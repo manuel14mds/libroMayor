@@ -1,67 +1,50 @@
+/* 
+
+
+*/
+* {
+  font-family: 'Times New Roman', Times, serif;
+}
+
 body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   background-color: lightgreen;
 }
 
-body .container {
-  background-color: aqua;
-  padding: 4em;
+body header {
+  background-color: aliceblue;
 }
 
-body .uno {
-  background-color: beige;
+body main {
+  background-color: whitesmoke;
 }
 
-body .uno .card .card-header h2 button {
-  text-align: right !important;
+body main #mostrarCuenta {
+  background-color: #979797;
+  height: 600px;
+  padding: 1rem;
 }
 
-body .dos {
-  background-color: aqua;
-  border: 3px solid gray;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+body main #mostrarCuenta h1 {
+  text-align: center;
 }
 
-body .dos .tittle {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 2px;
-  font-size: 20px;
-  height: 30px;
+body main #mostrarCuenta p {
+  text-align: center;
 }
 
-body .dos .output {
-  background-color: lightblue;
-  height: 200px;
-  overflow-y: scroll;
-  margin: 0px;
-  padding: 0px;
+body main #mostrarCuenta form {
+  background-color: #93B5C6;
 }
 
-body .dos .saldoDebito {
-  height: 70px;
-  text-align: right;
-  font-size: 15px;
+body main #mostrarCuenta form label {
+  text-align: center;
 }
 
-body .dos .saldoDebito .tituloSaldo {
-  text-align: left;
-  font-size: 17px;
-}
-
-body .tres {
+body main #mostrarCuenta .cuenta {
   background-color: azure;
   border: 3px solid black;
   border-radius: 4px;
@@ -74,9 +57,9 @@ body .tres {
           flex-direction: column;
 }
 
-body .tres .encabezado {
+body main #mostrarCuenta .cuenta .encabezado {
   text-align: center;
-  background-color: bisque;
+  background-color: whitesmoke;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -86,50 +69,181 @@ body .tres .encabezado {
           flex-direction: column;
 }
 
-body .tres .encabezado .codigo {
-  font-size: 16px;
+body main #mostrarCuenta .cuenta .encabezado .codigo {
+  font-size: 1rem;
 }
 
-body .tres .encabezado .codigo label {
+body main #mostrarCuenta .cuenta .encabezado .codigo label {
   margin: 0;
   padding: 10px 0px 0px 0px;
   border: 0;
 }
 
-body .tres .encabezado .nombre {
-  font-size: 19px;
+body main #mostrarCuenta .cuenta .encabezado .nombre {
+  font-size: 1rem;
 }
 
-body .tres .contenido {
+body main #mostrarCuenta .cuenta .contenido {
   height: 300px;
   width: 100%;
   margin: 0;
   padding: 0;
 }
 
-body .tres .contenido .ladoDebito {
+body main #mostrarCuenta .cuenta .contenido .ladoDebito {
   background-color: aquamarine;
   height: 100%;
   padding: 0;
+  /* ContenedorRegisto antiguo 2 */
 }
 
-body .tres .contenido .ladoCredito {
+body main #mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro {
+  background-color: #93B5C6;
+  border: 3px solid gray;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  /* Lista de registros debito */
+}
+
+body main #mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .tittle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: auto;
+      -ms-flex-align: auto;
+          align-items: auto;
+  padding: 2px;
+  font-size: 1.1rem;
+  height: 30px;
+}
+
+body main #mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .output {
+  background-color: #C9CCD5;
+  height: 200px;
+  overflow-y: scroll;
+  margin: 0px;
+  padding: 0px;
+}
+
+body main #mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .output .listaRegistros {
+  background-color: beige;
+}
+
+body main #mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .output .listaRegistros .card .card-header {
+  height: 40px;
+  padding: 6px;
+}
+
+body main #mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .output .listaRegistros .card .card-header h2 button {
+  text-align: right !important;
+}
+
+body main #mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .saldoDebito {
+  height: 70px;
+  text-align: right;
+  font-size: 15px;
+}
+
+body main #mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .saldoDebito .tituloSaldo {
+  text-align: left;
+  font-size: 17px;
+}
+
+body main #mostrarCuenta .cuenta .contenido .ladoCredito {
   background-color: cadetblue;
   height: 100%;
   padding: 0;
+  /* ContenedorRegisto antiguo 2 */
 }
 
-body .tres .saldoTotal {
-  background-color: bisque;
-  text-align: center;
+body main #mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro {
+  background-color: #FFE3E3;
+  border: 3px solid gray;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  /* Lista de registros credito */
 }
 
-body .tres .saldoTotal .titulo {
-  font-size: 20px;
+body main #mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .tittle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: auto;
+      -ms-flex-align: auto;
+          align-items: auto;
+  padding: 2px;
+  font-size: 1.1rem;
+  height: 30px;
 }
 
-body .tres .saldoTotal .saldo {
+body main #mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .output {
+  background-color: #E4D8DC;
+  height: 200px;
+  overflow-y: scroll;
+  margin: 0px;
+  padding: 0px;
+}
+
+body main #mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .output .listaRegistros {
+  background-color: beige;
+}
+
+body main #mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .output .listaRegistros .card .card-header {
+  height: 40px;
+  padding: 6px;
+}
+
+body main #mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .output .listaRegistros .card .card-header h2 button {
+  text-align: right !important;
+}
+
+body main #mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .saldoCredito {
+  height: 70px;
+  text-align: right;
+  font-size: 15px;
+}
+
+body main #mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .saldoCredito .tituloSaldo {
   text-align: left;
+  font-size: 17px;
+}
+
+body main #mostrarCuenta .cuenta .saldoTotal {
+  background-color: whitesmoke;
+  text-align: center;
+  padding: 0px;
+}
+
+body main #mostrarCuenta .cuenta .saldoTotal .titulo {
+  margin: 0px;
+  font-size: 1rem;
+  padding-top: 3px;
+}
+
+body main #mostrarCuenta .cuenta .saldoTotal div {
+  width: 100%;
+  margin: 0px;
+}
+
+body main #mostrarCuenta .cuenta .saldoTotal div .saldoIzquierda {
+  text-align: center;
   padding-left: 10px;
+}
+
+body main #mostrarCuenta .cuenta .saldoTotal div .saldoDerecha {
+  text-align: center;
+  padding-right: 10px;
+}
+
+body footer {
+  background-color: aliceblue;
 }
 /*# sourceMappingURL=style.css.map */
