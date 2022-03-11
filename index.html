@@ -5,38 +5,125 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/style.css">
     <title>Simulador Libro Mayor</title>
 </head>
 
 <body>
-    <header></header>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <a class="navbar-brand" href="#">AccSoft</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#cuentasMov">Cuentas Movimientos</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#transaccion">Crear Transaccion</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#crearCuenta">Crear Cuenta</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#mostrarCuenta">Mostrar Cuenta</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#listaCuentas">Lista Cuentas</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
     <main>
-        
-        <section id="transaccion"></section>
-    
-        <section id="listaCuenta"></section>
-    
-        <section id="crearCuenta"></section>
-    
-        <section id="mostrarCuenta">
+        <section class="jumbotron container-sm">
+            <h1 class="display-4">Accounting software</h1>
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its
+                parent.</p>
+        </section>
+
+        <section id="cuentasMov" class="cuentasMov container-sm">
+            <h2>Lista de Cuentas Con Movimientos</h2>
+            <div class="lista">
+                <div class="row encabezado">
+                    <div class="col titulo">
+                        <p>Cuentas</p>
+                    </div>
+                    <div class="botones col">
+                        <button class="btn-reload"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+                        <button class="btn-close"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </div>
+                <!-- En este contenedor se pondrán todas las listas de cada grupo  -->
+                <div class="contenidoListas">
+                    <!-- Encabezado de lista -->
+                    <div class="cabezaLista row container-fluid">
+                        <div class="col">Código</div>
+                        <div class="col">Nombre</div>
+                        <div class="col">Saldo Total</div>
+                    </div>
+
+                    <!-- fila de lista donde se inserta la informacion -->
+                    <div class="filaLista row container-fluid">
+                        <div class="col">1105</div>
+                        <div class="col">Caja</div>
+                        <div class="col">1500000</div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <section id="transaccion" class="transaccion container-sm">
+            <h2>Transaccion</h2>
+            <h2>working</h2>
+            <h2>working</h2>
+            <h2>working</h2>
+            <h2>working</h2>
+        </section>
+
+        <section id="crearCuenta" class="crearCuenta container-sm">
+            <h2>Crear cuenta</h2>
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Código De Cuenta</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Nombre De Cuenta</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1">
+                </div>
+                <button type="submit" class="btn btn-light btnCrearCuenta">Submit</button>
+            </form>
+        </section>
+
+        <section id="mostrarCuenta" class="mostrarCuenta container-sm">
             <div class="buscarCuenta container">
                 <h1>Mostrar Cuenta</h1>
                 <p>Digite el numero de cuenta a buscar, por ahora solo estan con movimientos la 11 y la 51</p>
                 <form class="form-inline row" action="">
                     <label class="col-sm-4" for="text">Código</label>
                     <input type="text" class="form-control col-sm-4" placeholder="Ingrese código" id="codigo">
-                    <button type="button" class="btn btn-primary col-sm-4" data-toggle="collapse" data-target="#cuenta">Buscar</button>
-                </form> 
-                
+                    <button type="button" class="btn btn-primary col-sm-4" data-toggle="collapse"
+                        data-target="#cuenta">Buscar</button>
+                </form>
+
                 <div id="cuenta" class="cuenta collapse">
-                    
+
                 </div>
-                
 
             </div>
 
@@ -45,15 +132,43 @@
 
         </section>
 
+        <section id="listaCuentas" class="listaCuentas container-sm">
+            <h2>Lista De Cuentas Registradas</h2>
+            <h2>working</h2>
+            <h2>working</h2>
+            <h2>working</h2>
+            <h2>working</h2>
+        </section>
+
     </main>
-    
-    <footer></footer>
+
+    <footer>
+        <div class="row container-fluid">
+            <div class="text col-sm-4">
+                <p>Proyecto realizado por Manuel Florez con fines academicos. 2022</p>
+            </div>
+            <div class="nav col">
+                <a class="nav-link" href="#">Inicio</a>
+                <a class="nav-link" href="#cuentasMov">Cuentas Movimientos</a>
+                <a class="nav-link" href="#transaccion">Crear Transaccion</a>
+                <a class="nav-link" href="#crearCuenta">Crear Cuenta</a>
+                <a class="nav-link" href="#mostrarCuenta">Mostrar Cuenta</a>
+                <a class="nav-link" href="#listaCuentas">Lista Cuentas</a>
+            </div>
+        </div>
+    </footer>
 
 
-    
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+        integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
+        crossorigin="anonymous"></script>
 
 
     <script lang="javascript" src="./scripts/script.js"></script>

@@ -8,7 +8,6 @@ function cuentaHTML(cuenta){
     let registrosDebitoHTML = ""
     let registrosCreditoHTML = ""
     for(registro of registrosDebito){
-        let contador=1
         registrosDebitoHTML +=`
                             <div class="accordion listaRegistros" id="accordionExample">
                                 <div class="card">
@@ -38,7 +37,6 @@ function cuentaHTML(cuenta){
                             </div>
 
         `
-        contador++
     }
     for(registro of registrosCredito){
         let contador=1
@@ -75,7 +73,6 @@ function cuentaHTML(cuenta){
     }
 
     let string = `
-    <div id="cuenta" class="cuenta collapse">
                 <div class="encabezado">
                     <div class="codigo">
                     <!-- ###################  CODIGO CUENTAL ###########################  -->
@@ -143,12 +140,10 @@ function cuentaHTML(cuenta){
                         <p class="saldoDerecha col"></p>
                     </div>
                 </div>
-            </div>
     
     `
     if(cuenta.naturaleza == "CREDITO"){
         let string = `
-    <div id="cuenta" class="cuenta collapse">
                 <div class="encabezado">
                     <div class="codigo">
                     <!-- ###################  CODIGO CUENTAL ###########################  -->
@@ -216,7 +211,6 @@ function cuentaHTML(cuenta){
                         <p class="saldoDerecha col">${cuenta.saldoTotal}</p>
                     </div>
                 </div>
-            </div>
     
     `
     }
@@ -225,7 +219,7 @@ function cuentaHTML(cuenta){
 }
 let cuenta = obtenerCuenta(prompt("Digite cuenta"))
 
-let contenedorMostrar = document.querySelector("#cuenta")
+let contenedorMostrar = document.getElementById("cuenta")
 console.log(contenedorMostrar)
 let nombreHTML = document.createElement("p")
 nombreHTML.innerHTML= cuentaHTML(cuenta)

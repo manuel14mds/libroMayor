@@ -7,6 +7,7 @@ $color2: #C9CCD5;
 $color3: #E4D8DC;
 $color4: #FFE3E3;
 $color5: #979797;
+$color6: #e4e4e4;
 *{
     font-family: 'Times New Roman', Times, serif;
 }
@@ -15,16 +16,112 @@ body {
     margin: 0px;
     padding: 0px;
     background-color: lightgreen;
+
     header{
-        background-color: aliceblue;
+        .navbar{
+            background-color: $color2 !important;
+            .collapse{
+                justify-content: flex-end;
+                margin-right: 1rem;
+                .navbar-nav{
+                    background-color: $color6 !important;
+
+                }
+            }
+        }
     }
 
     main{
         background-color: whitesmoke;
-        #mostrarCuenta{
-            background-color: $color5;
-            height: 600px;
+        .cuentasMov{
+            background-color: $color6;
+            border-radius: 5px;
             padding: 1rem;
+            margin-bottom: 0.5rem;
+
+            .lista{
+                border: 1px solid $color5;
+                
+                .encabezado{
+                    margin: 0px;
+                    padding: 0px;
+                    
+                    .titulo{
+                        border: 0px;
+
+                        p{
+                            padding: 0.15rem;
+                            margin: 0px;
+                        }
+                    }
+
+                    .botones{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-end;
+
+                        button{
+                            background-color: white;
+                            border-radius: 15px;
+                            border-style: none;
+                            width: 30px;
+                            height: 30px;
+                            margin: 4px 3px 4px 3px;
+                        }
+                        .btn-reload:hover{
+                            background-color: #c6f5e9;
+                        }
+                        .btn-close:hover{
+                            background-color: #f5cbc6;
+                        }
+                        
+                    }
+                }
+
+                .contenidoListas{
+
+                    .cabezaLista{
+                        text-align: center;
+                        margin: 0px;
+                        div{
+                            background-color: $color5;
+                            border: 1px $color6 solid;
+                            border-radius: 5px;
+                            font-size: 0.7rem;
+                        }
+                    }
+                    .filaLista{  // esta es la fila de los datos a mostrar
+                        text-align: center;
+                        margin: 0px;
+                        div{
+                            border: 1px $color6 dotted;
+                            font-size: 0.7rem;
+                            background-color: white;
+                        }
+                    }
+                }
+            }
+        }
+
+        .transaccion{
+            background-color: $color5;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .crearCuenta{
+            background-color: $color5;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .mostrarCuenta{
+            background-color: $color5;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
             h1{
                 text-align: center;
             }
@@ -210,10 +307,26 @@ body {
                 }
             }
         }
+
+        .listaCuentas{
+            background-color: $color5;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+        }
     }
 
     footer{
-        background-color: aliceblue;
+        background-color: $color6;
+        div{
+            .text{
+                padding: 1.5rem;
+            }
+            .navbar{
+                font-size: 0.5rem !important;
+                padding: 1.5rem;
+            }
+        }
     }
 
 }

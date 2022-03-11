@@ -14,37 +14,141 @@ body {
   background-color: lightgreen;
 }
 
-body header {
-  background-color: aliceblue;
+body header .navbar {
+  background-color: #C9CCD5 !important;
+}
+
+body header .navbar .collapse {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-right: 1rem;
+}
+
+body header .navbar .collapse .navbar-nav {
+  background-color: #e4e4e4 !important;
 }
 
 body main {
   background-color: whitesmoke;
 }
 
-body main #mostrarCuenta {
-  background-color: #979797;
-  height: 600px;
+body main .cuentasMov {
+  background-color: #e4e4e4;
+  border-radius: 5px;
   padding: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-body main #mostrarCuenta h1 {
+body main .cuentasMov .lista {
+  border: 1px solid #979797;
+}
+
+body main .cuentasMov .lista .encabezado {
+  margin: 0px;
+  padding: 0px;
+}
+
+body main .cuentasMov .lista .encabezado .titulo {
+  border: 0px;
+}
+
+body main .cuentasMov .lista .encabezado .titulo p {
+  padding: 0.15rem;
+  margin: 0px;
+}
+
+body main .cuentasMov .lista .encabezado .botones {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+body main .cuentasMov .lista .encabezado .botones button {
+  background-color: white;
+  border-radius: 15px;
+  border-style: none;
+  width: 30px;
+  height: 30px;
+  margin: 4px 3px 4px 3px;
+}
+
+body main .cuentasMov .lista .encabezado .botones .btn-reload:hover {
+  background-color: #c6f5e9;
+}
+
+body main .cuentasMov .lista .encabezado .botones .btn-close:hover {
+  background-color: #f5cbc6;
+}
+
+body main .cuentasMov .lista .contenidoListas .cabezaLista {
+  text-align: center;
+  margin: 0px;
+}
+
+body main .cuentasMov .lista .contenidoListas .cabezaLista div {
+  background-color: #979797;
+  border: 1px #e4e4e4 solid;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+body main .cuentasMov .lista .contenidoListas .filaLista {
+  text-align: center;
+  margin: 0px;
+}
+
+body main .cuentasMov .lista .contenidoListas .filaLista div {
+  border: 1px #e4e4e4 dotted;
+  font-size: 0.7rem;
+  background-color: white;
+}
+
+body main .transaccion {
+  background-color: #979797;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+body main .crearCuenta {
+  background-color: #979797;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+body main .mostrarCuenta {
+  background-color: #979797;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+body main .mostrarCuenta h1 {
   text-align: center;
 }
 
-body main #mostrarCuenta p {
+body main .mostrarCuenta p {
   text-align: center;
 }
 
-body main #mostrarCuenta form {
+body main .mostrarCuenta form {
   background-color: #93B5C6;
 }
 
-body main #mostrarCuenta form label {
+body main .mostrarCuenta form label {
   text-align: center;
 }
 
-body main #mostrarCuenta .cuenta {
+body main .mostrarCuenta .cuenta {
   background-color: azure;
   border: 3px solid black;
   border-radius: 4px;
@@ -57,7 +161,7 @@ body main #mostrarCuenta .cuenta {
           flex-direction: column;
 }
 
-body main #mostrarCuenta .cuenta .encabezado {
+body main .mostrarCuenta .cuenta .encabezado {
   text-align: center;
   background-color: whitesmoke;
   display: -webkit-box;
@@ -69,35 +173,35 @@ body main #mostrarCuenta .cuenta .encabezado {
           flex-direction: column;
 }
 
-body main #mostrarCuenta .cuenta .encabezado .codigo {
+body main .mostrarCuenta .cuenta .encabezado .codigo {
   font-size: 1rem;
 }
 
-body main #mostrarCuenta .cuenta .encabezado .codigo label {
+body main .mostrarCuenta .cuenta .encabezado .codigo label {
   margin: 0;
   padding: 10px 0px 0px 0px;
   border: 0;
 }
 
-body main #mostrarCuenta .cuenta .encabezado .nombre {
+body main .mostrarCuenta .cuenta .encabezado .nombre {
   font-size: 1rem;
 }
 
-body main #mostrarCuenta .cuenta .contenido {
+body main .mostrarCuenta .cuenta .contenido {
   height: 300px;
   width: 100%;
   margin: 0;
   padding: 0;
 }
 
-body main #mostrarCuenta .cuenta .contenido .ladoDebito {
+body main .mostrarCuenta .cuenta .contenido .ladoDebito {
   background-color: aquamarine;
   height: 100%;
   padding: 0;
   /* ContenedorRegisto antiguo 2 */
 }
 
-body main #mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro {
+body main .mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro {
   background-color: #93B5C6;
   border: 3px solid gray;
   width: 100%;
@@ -106,7 +210,7 @@ body main #mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro {
   /* Lista de registros debito */
 }
 
-body main #mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .tittle {
+body main .mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .tittle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -121,7 +225,7 @@ body main #mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .tit
   height: 30px;
 }
 
-body main #mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .output {
+body main .mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .output {
   background-color: #C9CCD5;
   height: 200px;
   overflow-y: scroll;
@@ -129,38 +233,38 @@ body main #mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .out
   padding: 0px;
 }
 
-body main #mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .output .listaRegistros {
+body main .mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .output .listaRegistros {
   background-color: beige;
 }
 
-body main #mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .output .listaRegistros .card .card-header {
+body main .mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .output .listaRegistros .card .card-header {
   height: 40px;
   padding: 6px;
 }
 
-body main #mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .output .listaRegistros .card .card-header h2 button {
+body main .mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .output .listaRegistros .card .card-header h2 button {
   text-align: right !important;
 }
 
-body main #mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .saldoDebito {
+body main .mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .saldoDebito {
   height: 70px;
   text-align: right;
   font-size: 15px;
 }
 
-body main #mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .saldoDebito .tituloSaldo {
+body main .mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .saldoDebito .tituloSaldo {
   text-align: left;
   font-size: 17px;
 }
 
-body main #mostrarCuenta .cuenta .contenido .ladoCredito {
+body main .mostrarCuenta .cuenta .contenido .ladoCredito {
   background-color: cadetblue;
   height: 100%;
   padding: 0;
   /* ContenedorRegisto antiguo 2 */
 }
 
-body main #mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro {
+body main .mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro {
   background-color: #FFE3E3;
   border: 3px solid gray;
   width: 100%;
@@ -169,7 +273,7 @@ body main #mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro {
   /* Lista de registros credito */
 }
 
-body main #mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .tittle {
+body main .mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .tittle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -184,7 +288,7 @@ body main #mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .ti
   height: 30px;
 }
 
-body main #mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .output {
+body main .mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .output {
   background-color: #E4D8DC;
   height: 200px;
   overflow-y: scroll;
@@ -192,58 +296,74 @@ body main #mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .ou
   padding: 0px;
 }
 
-body main #mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .output .listaRegistros {
+body main .mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .output .listaRegistros {
   background-color: beige;
 }
 
-body main #mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .output .listaRegistros .card .card-header {
+body main .mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .output .listaRegistros .card .card-header {
   height: 40px;
   padding: 6px;
 }
 
-body main #mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .output .listaRegistros .card .card-header h2 button {
+body main .mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .output .listaRegistros .card .card-header h2 button {
   text-align: right !important;
 }
 
-body main #mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .saldoCredito {
+body main .mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .saldoCredito {
   height: 70px;
   text-align: right;
   font-size: 15px;
 }
 
-body main #mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .saldoCredito .tituloSaldo {
+body main .mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .saldoCredito .tituloSaldo {
   text-align: left;
   font-size: 17px;
 }
 
-body main #mostrarCuenta .cuenta .saldoTotal {
+body main .mostrarCuenta .cuenta .saldoTotal {
   background-color: whitesmoke;
   text-align: center;
   padding: 0px;
 }
 
-body main #mostrarCuenta .cuenta .saldoTotal .titulo {
+body main .mostrarCuenta .cuenta .saldoTotal .titulo {
   margin: 0px;
   font-size: 1rem;
   padding-top: 3px;
 }
 
-body main #mostrarCuenta .cuenta .saldoTotal div {
+body main .mostrarCuenta .cuenta .saldoTotal div {
   width: 100%;
   margin: 0px;
 }
 
-body main #mostrarCuenta .cuenta .saldoTotal div .saldoIzquierda {
+body main .mostrarCuenta .cuenta .saldoTotal div .saldoIzquierda {
   text-align: center;
   padding-left: 10px;
 }
 
-body main #mostrarCuenta .cuenta .saldoTotal div .saldoDerecha {
+body main .mostrarCuenta .cuenta .saldoTotal div .saldoDerecha {
   text-align: center;
   padding-right: 10px;
 }
 
+body main .listaCuentas {
+  background-color: #979797;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+}
+
 body footer {
-  background-color: aliceblue;
+  background-color: #e4e4e4;
+}
+
+body footer div .text {
+  padding: 1.5rem;
+}
+
+body footer div .navbar {
+  font-size: 0.5rem !important;
+  padding: 1.5rem;
 }
 /*# sourceMappingURL=style.css.map */

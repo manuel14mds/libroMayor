@@ -1,70 +1,3 @@
-/* //  ESTADO DE SITUACION FINANCIERA
-
-class EtadoSituacionFinanciera{
-    constructor(){
-        //ACTIVOS
-        let efectivosEquivalentes = 300
-        let cuentasXCobrar = 500
-        let inventarios = 1200
-        let aNoCorrientes = 3000
-        
-        //PASIVOS
-        let obligFinancieras = 600
-        let cuentasXpagar = 900
-        let gastosXpagar = 300
-        let obligFinanNoCorr = 1200
-        
-        //PATRIMONIO
-        let capitalSocial = 1600
-        let utilidades = 400
-
-    }
-    capitalTrabajo() {
-        let activoCorriente = efectivosEquivalentes + cuentasXCobrar + inventarios
-        let pasivoCorriente = obligFinancieras + cuentasXpagar + gastosXpagar
-        return (activoCorriente) - (pasivoCorriente)
-    }
-    liquidezCorriente() {
-        let activoCorriente = efectivosEquivalentes + cuentasXCobrar + inventarios
-        let pasivoCorriente = obligFinancieras + cuentasXpagar + gastosXpagar
-        return (activoCorriente) / (pasivoCorriente)
-    }
-    liquidezAcida() {
-        let activoCorriente = efectivosEquivalentes + cuentasXCobrar + inventarios
-        let pasivoCorriente = obligFinancieras + cuentasXpagar + gastosXpagar
-        return (activoCorriente - inventarios) / (pasivoCorriente)
-    }
-
-}
-let estadoUno = new EtadoSituacionFinanciera()
-
-
-function validarNumero(num) {
-    while (isNaN(num) || num <= 0 || num > 3) {
-        num = parseInt(prompt("XX valor Incorrecto XX\n Digite un numero nuevamente"))
-    }
-    return num
-}
-
-//RATIOS DE LIQUIDEZ
-
-let repetir
-
-do{
-    let opcion = parseInt(prompt(" 1. Capital de Trabajo \n 2. Liquidez Corriente \n 3. Liquidez Acida \n Seleccione el ratio que quiere calcular"))
-    opcion = validarNumero(opcion)
-    switch (opcion) {
-        case 1:
-            alert("El capital de trabajo es: "+ estadoUno.capitalTrabajo())
-            break;
-        case 2:
-            alert("El capital de trabajo es: "+ estadoUno.liquidezCorriente())
-            break;
-        default:
-            alert("El capital de trabajo es: "+ estadoUno.liquidezAcida())
-    }
-    repetir = prompt("Desea repetir la operacion ? si / cualquier letra")
-}while(repetir == "si") */
 
 
 //                                     ############   Clases   ################
@@ -347,7 +280,7 @@ const costos = []
 
 
 
-let registroNuevo = crearRegistro(10000, "prestamo de efectivo en el banco")//creo un registro
+let registroNuevo = crearRegistro(50000000000, "prestamo de efectivo en el banco")//creo un registro
 console.log(registroNuevo)
 let cuentaA = obtenerCuenta("11")// busco una cuenta ya creada
 console.log(cuentaA)
