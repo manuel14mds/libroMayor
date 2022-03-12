@@ -4,6 +4,7 @@
 */
 * {
   font-family: 'Times New Roman', Times, serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -11,7 +12,7 @@ body {
           box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-  background-color: lightgreen;
+  background-color: #93B5C6;
 }
 
 body header .navbar {
@@ -29,8 +30,8 @@ body header .navbar .collapse .navbar-nav {
   background-color: #e4e4e4 !important;
 }
 
-body main {
-  background-color: whitesmoke;
+body main .jumbotron {
+  margin-bottom: 0.5rem;
 }
 
 body main .cuentasMov {
@@ -42,6 +43,8 @@ body main .cuentasMov {
 
 body main .cuentasMov .lista {
   border: 1px solid #979797;
+  max-height: 250px;
+  overflow-y: scroll;
 }
 
 body main .cuentasMov .lista .encabezado {
@@ -50,6 +53,7 @@ body main .cuentasMov .lista .encabezado {
 }
 
 body main .cuentasMov .lista .encabezado .titulo {
+  margin-bottom: 5px;
   border: 0px;
 }
 
@@ -90,7 +94,7 @@ body main .cuentasMov .lista .encabezado .botones .btn-close:hover {
 
 body main .cuentasMov .lista .contenidoListas .cabezaLista {
   text-align: center;
-  margin: 0px;
+  margin: 0px 0px 3px 0px;
 }
 
 body main .cuentasMov .lista .contenidoListas .cabezaLista div {
@@ -102,11 +106,11 @@ body main .cuentasMov .lista .contenidoListas .cabezaLista div {
 
 body main .cuentasMov .lista .contenidoListas .filaLista {
   text-align: center;
-  margin: 0px;
+  margin: 0px 0px 2px 0px;
 }
 
 body main .cuentasMov .lista .contenidoListas .filaLista div {
-  border: 1px #e4e4e4 dotted;
+  border: 1.5px #e4e4e4 dotted;
   font-size: 0.7rem;
   background-color: white;
 }
@@ -118,8 +122,54 @@ body main .transaccion {
   margin-bottom: 0.5rem;
 }
 
+body main .transaccion .TransInfo p {
+  margin: 0px;
+  padding: 0px;
+}
+
+body main .transaccion .row {
+  font-size: 0.7rem;
+  border-style: dashed none none none;
+  border-width: 1px;
+}
+
+body main .transaccion .row .col-sm-5 {
+  text-align: center;
+}
+
+body main .transaccion .row .col-sm-5 input {
+  width: 100%;
+}
+
+body main .transaccion .row .col-sm-5 label {
+  margin: 2px;
+}
+
+body main .transaccion .row .col-sm-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+body main .transaccion .boton {
+  margin-top: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 body main .crearCuenta {
-  background-color: #979797;
+  background-color: #e4e4e4;
   border-radius: 5px;
   padding: 1rem;
   margin-bottom: 0.5rem;
@@ -130,10 +180,6 @@ body main .mostrarCuenta {
   border-radius: 5px;
   padding: 1rem;
   margin-bottom: 0.5rem;
-}
-
-body main .mostrarCuenta h1 {
-  text-align: center;
 }
 
 body main .mostrarCuenta p {
@@ -348,14 +394,102 @@ body main .mostrarCuenta .cuenta .saldoTotal div .saldoDerecha {
 }
 
 body main .listaCuentas {
-  background-color: #979797;
+  background-color: #e4e4e4;
   border-radius: 5px;
   padding: 1rem;
   margin-bottom: 0.5rem;
 }
 
+body main .listaCuentas .lista {
+  border: 1px solid #979797;
+  max-height: 250px;
+  overflow-y: scroll;
+}
+
+body main .listaCuentas .lista .encabezado {
+  margin: 0px;
+  padding: 0px;
+}
+
+body main .listaCuentas .lista .encabezado .titulo {
+  margin-bottom: 5px;
+  border: 0px;
+}
+
+body main .listaCuentas .lista .encabezado .titulo p {
+  padding: 0.15rem;
+  margin: 0px;
+}
+
+body main .listaCuentas .lista .encabezado .botones {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+body main .listaCuentas .lista .encabezado .botones button {
+  background-color: white;
+  border-radius: 15px;
+  border-style: none;
+  width: 30px;
+  height: 30px;
+  margin: 4px 3px 4px 3px;
+}
+
+body main .listaCuentas .lista .encabezado .botones .btn-reload:hover {
+  background-color: #c6f5e9;
+}
+
+body main .listaCuentas .lista .encabezado .botones .btn-close:hover {
+  background-color: #f5cbc6;
+}
+
+body main .listaCuentas .lista .contenidoListas .grupo {
+  background-color: #93B5C6;
+  padding: 0;
+  margin: 1px 0px 1px 0px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+body main .listaCuentas .lista .contenidoListas .grupo p {
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+}
+
+body main .listaCuentas .lista .contenidoListas .cabezaLista {
+  text-align: center;
+  margin: 0px 0px 3px 0px;
+}
+
+body main .listaCuentas .lista .contenidoListas .cabezaLista div {
+  background-color: #979797;
+  border: 1px #e4e4e4 solid;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+body main .listaCuentas .lista .contenidoListas .filaLista {
+  text-align: center;
+  margin: 0px 0px 2px 0px;
+}
+
+body main .listaCuentas .lista .contenidoListas .filaLista div {
+  border: 1.5px #e4e4e4 dotted;
+  font-size: 0.7rem;
+  background-color: white;
+}
+
 body footer {
-  background-color: #e4e4e4;
+  background-color: #C9CCD5;
 }
 
 body footer div .text {

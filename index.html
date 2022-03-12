@@ -18,6 +18,7 @@
 </head>
 
 <body>
+
     <header>
         <nav class="navbar navbar-expand-md navbar-light bg-light">
             <a class="navbar-brand" href="#">AccSoft</a>
@@ -55,7 +56,7 @@
         </section>
 
         <section id="cuentasMov" class="cuentasMov container-sm">
-            <h2>Lista de Cuentas Con Movimientos</h2>
+            <h3>Lista de Cuentas Con Movimientos</h3>
             <div class="lista">
                 <div class="row encabezado">
                     <div class="col titulo">
@@ -88,15 +89,101 @@
         </section>
 
         <section id="transaccion" class="transaccion container-sm">
-            <h2>Transaccion</h2>
-            <h2>working</h2>
-            <h2>working</h2>
-            <h2>working</h2>
-            <h2>working</h2>
+            <div class="TransInfo">
+                <h3>Transaccion</h3>
+            </div>
+
+            <div class="row cuentaUno">
+                <div class="col-sm-5">
+                    <label for="fname">Cuenta 1</label><br>
+                    <input type="text" id="fname" name="fname" placeholder="Digite Código">
+                </div>
+                <div class="col-sm-5">
+                    <label for="quantity">Monto 1</label><br>
+                    <input type="number" id="quantity" name="quantity" placeholder="Digite el Monto">
+                </div>
+                <div class="col-sm-2">
+                    <div>
+                        <input type="radio" id="check-deb1" name="fav_language" value="DEBITO">
+                        <label for="html">Debitar</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="check-cred1" name="fav_language" value="CREDITO">
+                        <label for="html">Acreditar</label><br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row cuentaUno">
+                <div class="col-sm-5">
+                    <label for="fname">Cuenta 2</label><br>
+                    <input type="text" id="fname" name="fname" placeholder="Digite Código">
+                </div>
+                <div class="col-sm-5">
+                    <label for="quantity">Monto 2</label><br>
+                    <input type="number" id="quantity" name="quantity" placeholder="Digite el Monto">
+                </div>
+                <div class="col-sm-2">
+                    <div>
+                        <input type="radio" id="check-deb2" name="fav_language" value="DEBITO">
+                        <label for="html">Debitar</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="check-cred2" name="fav_language" value="CREDITO">
+                        <label for="html">Acreditar</label><br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row cuentaUno">
+                <div class="col-sm-5">
+                    <label for="fname">Cuenta 3</label><br>
+                    <input type="text" id="fname" name="fname" placeholder="Digite Código">
+                </div>
+                <div class="col-sm-5">
+                    <label for="quantity">Monto 3</label><br>
+                    <input type="number" id="quantity" name="quantity" placeholder="Digite el Monto">
+                </div>
+                <div class="col-sm-2">
+                    <div>
+                        <input type="radio" id="check-deb3" name="fav_language" value="DEBITO">
+                        <label for="html">Debitar</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="check-cred3" name="fav_language" value="CREDITO">
+                        <label for="html">Acreditar</label><br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row cuentaUno">
+                <div class="col-sm-5">
+                    <label for="fname">Cuenta 4</label><br>
+                    <input type="text" id="fname" name="fname" placeholder="Digite Código">
+                </div>
+                <div class="col-sm-5">
+                    <label for="quantity">Monto 4</label><br>
+                    <input type="number" id="quantity" name="quantity" placeholder="Digite el Monto">
+                </div>
+                <div class="col-sm-2">
+                    <div>
+                        <input type="radio" id="check-deb4" name="fav_language" value="DEBITO">
+                        <label for="html">Debitar</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="check-cred4" name="fav_language" value="CREDITO">
+                        <label for="html">Acreditar</label><br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="boton">
+                <button type="submit" class="btn btn-light">Enviar</button>
+            </div>
         </section>
 
         <section id="crearCuenta" class="crearCuenta container-sm">
-            <h2>Crear cuenta</h2>
+            <h3>Crear cuenta</h3>
             <form>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Código De Cuenta</label>
@@ -112,7 +199,7 @@
 
         <section id="mostrarCuenta" class="mostrarCuenta container-sm">
             <div class="buscarCuenta container">
-                <h1>Mostrar Cuenta</h1>
+                <h3>Mostrar Cuenta</h3>
                 <p>Digite el numero de cuenta a buscar, por ahora solo estan con movimientos la 11 y la 51</p>
                 <form class="form-inline row" action="">
                     <label class="col-sm-4" for="text">Código</label>
@@ -133,11 +220,40 @@
         </section>
 
         <section id="listaCuentas" class="listaCuentas container-sm">
-            <h2>Lista De Cuentas Registradas</h2>
-            <h2>working</h2>
-            <h2>working</h2>
-            <h2>working</h2>
-            <h2>working</h2>
+            <h3>Lista De Todas Las Cuentas Registradas</h3>
+            <div class="lista">
+                <div class="row encabezado">
+                    <div class="col titulo">
+                        <p>Cuentas</p>
+                    </div>
+                    <div class="botones col">
+                        <button class="btn-reload"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+                        <button class="btn-close"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </div>
+                <!-- En este contenedor se pondrán todas las listas de cada grupo  -->
+                <div class="contenidoListas">
+
+                    <!-- grupo de la cuenta -->
+                    <div class="grupo row container-fluid ">
+                        <p>Activos</p>
+                    </div>
+                    <!-- Encabezado de lista -->
+                    <div class="cabezaLista row container-fluid">
+                        <div class="col">Código</div>
+                        <div class="col">Nombre</div>
+                        <div class="col">Saldo Total</div>
+                    </div>
+
+                    <!-- fila de lista donde se inserta la informacion -->
+                    <div class="filaLista row container-fluid">
+                        <div class="col">1105</div>
+                        <div class="col">Caja</div>
+                        <div class="col">1500000</div>
+                    </div>
+
+                </div>
+            </div>
         </section>
 
     </main>
@@ -171,8 +287,8 @@
         crossorigin="anonymous"></script>
 
 
-    <script lang="javascript" src="./scripts/script.js"></script>
-    <script src="./scripts/dom.js"></script>
+    <!-- <script lang="javascript" src="./scripts/script.js"></script>
+    <script src="./scripts/dom.js"></script> -->
 </body>
 
 </html>

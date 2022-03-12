@@ -10,12 +10,13 @@ $color5: #979797;
 $color6: #e4e4e4;
 *{
     font-family: 'Times New Roman', Times, serif;
+    scroll-behavior: smooth;
 }
 body {
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
-    background-color: lightgreen;
+    background-color: $color1;
 
     header{
         .navbar{
@@ -32,8 +33,12 @@ body {
     }
 
     main{
-        background-color: whitesmoke;
-        .cuentasMov{
+
+        .jumbotron{
+            margin-bottom: 0.5rem;
+        }
+
+        .cuentasMov{//lista de cuentas con movimientos
             background-color: $color6;
             border-radius: 5px;
             padding: 1rem;
@@ -41,12 +46,15 @@ body {
 
             .lista{
                 border: 1px solid $color5;
+                max-height: 250px;
+                overflow-y: scroll;
                 
                 .encabezado{
                     margin: 0px;
                     padding: 0px;
                     
                     .titulo{
+                        margin-bottom: 5px;
                         border: 0px;
 
                         p{
@@ -55,7 +63,7 @@ body {
                         }
                     }
 
-                    .botones{
+                    .botones{ //botones de actualizar y cerrar la lista
                         display: flex;
                         flex-direction: row;
                         justify-content: flex-end;
@@ -82,7 +90,7 @@ body {
 
                     .cabezaLista{
                         text-align: center;
-                        margin: 0px;
+                        margin: 0px 0px 3px 0px;
                         div{
                             background-color: $color5;
                             border: 1px $color6 solid;
@@ -92,9 +100,9 @@ body {
                     }
                     .filaLista{  // esta es la fila de los datos a mostrar
                         text-align: center;
-                        margin: 0px;
+                        margin: 0px 0px 2px 0px;
                         div{
-                            border: 1px $color6 dotted;
+                            border: 1.5px $color6 dotted;
                             font-size: 0.7rem;
                             background-color: white;
                         }
@@ -108,10 +116,48 @@ body {
             border-radius: 5px;
             padding: 1rem;
             margin-bottom: 0.5rem;
+            
+            .TransInfo{
+
+                p{
+
+                    margin: 0px;
+                    padding: 0px;
+                } 
+            }
+
+            .row{
+
+                font-size: 0.7rem;
+                border-style: dashed none none none;
+                border-width: 1px;
+                .col-sm-5{
+
+                    input{
+                        width: 100%;
+                    }
+                    text-align: center;
+                    label{
+
+                        margin: 2px;
+                    }
+                }
+                .col-sm-2{
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+            }
+            .boton{
+                margin-top: 4px;
+                display: flex;
+                justify-content: flex-end;
+            }
         }
         
         .crearCuenta{
-            background-color: $color5;
+            background-color: $color6;
             border-radius: 5px;
             padding: 1rem;
             margin-bottom: 0.5rem;
@@ -122,9 +168,7 @@ body {
             border-radius: 5px;
             padding: 1rem;
             margin-bottom: 0.5rem;
-            h1{
-                text-align: center;
-            }
+
             p{
                 text-align: center;
             }
@@ -309,15 +353,96 @@ body {
         }
 
         .listaCuentas{
-            background-color: $color5;
+            background-color: $color6;
             border-radius: 5px;
             padding: 1rem;
             margin-bottom: 0.5rem;
+
+            .lista{
+                border: 1px solid $color5;
+                max-height: 250px;
+                overflow-y: scroll;
+                
+                .encabezado{
+                    margin: 0px;
+                    padding: 0px;
+                    
+                    .titulo{
+                        margin-bottom: 5px;
+                        border: 0px;
+
+                        p{
+                            padding: 0.15rem;
+                            margin: 0px;
+                        }
+                    }
+
+                    .botones{ //botones de actualizar y cerrar la lista
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-end;
+
+                        button{
+                            background-color: white;
+                            border-radius: 15px;
+                            border-style: none;
+                            width: 30px;
+                            height: 30px;
+                            margin: 4px 3px 4px 3px;
+                        }
+                        .btn-reload:hover{
+                            background-color: #c6f5e9;
+                        }
+                        .btn-close:hover{
+                            background-color: #f5cbc6;
+                        }
+                        
+                    }
+                }
+
+                .contenidoListas{
+
+                    .grupo{// titulo del grupo de cuentas
+                        background-color: $color1;
+                        padding: 0;
+                        margin: 1px 0px 1px 0px;
+                        display: inline-block;
+                        border-radius: 2px;
+                        p{
+                            padding: 0px;
+                            margin: 0px;
+                            text-align: center;
+                        }
+                    }
+
+                    .cabezaLista{//cabecera de la lista
+                        text-align: center;
+                        margin: 0px 0px 3px 0px;
+                        div{
+                            background-color: $color5;
+                            border: 1px $color6 solid;
+                            border-radius: 5px;
+                            font-size: 0.7rem;
+                        }
+                    }
+
+                    .filaLista{  // esta es la fila de los datos a mostrar
+                        text-align: center;
+                        margin: 0px 0px 2px 0px;
+                        div{
+                            border: 1.5px $color6 dotted;
+                            font-size: 0.7rem;
+                            background-color: white;
+                        }
+                    }
+                }
+            }
         }
+
     }
 
     footer{
-        background-color: $color6;
+        background-color: $color2;
         div{
             .text{
                 padding: 1.5rem;
