@@ -119,6 +119,7 @@ function obtenerCuenta(codigo){// me devuelve el objeto de una lista de cuentas
                 }
             }
         }
+        return null
 }
 
 function validarCuenta(codigo){ // me devuelve un boolean si la cuenta existe o no 

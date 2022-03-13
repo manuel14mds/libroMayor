@@ -180,43 +180,58 @@ body {
             }
 
             .cuenta{
-                background-color: azure;
+                background-color: $color6;
                 border: 3px solid black;
                 border-radius: 4px;
                 display: flex;
                 flex-direction: column;
+                height: fit-content;
 
                 .encabezado{
+
                     text-align: center;
-                    background-color: whitesmoke;
                     display: flex;
                     flex-direction: column;
+
+                    .btn-close{
+                        background-color: white;
+                        border-radius: 15px;
+                        border-style: none;
+                        width: 30px;
+                        height: 30px;
+                        margin: 4px 3px 4px 3px;
+                        position: absolute;
+                    }
+
+                    .btn-close:hover{
+                        background-color: #f5cbc6;
+                    }
+
                     .codigo{
-                        font-size: 1rem;
+                        font-size: 0.7rem;
                         label{
                             margin: 0;
                             padding: 10px 0px 0px 0px;
-                            border: 0;
                         }
                     }
                     .nombre{
-                        font-size: 1rem;
+                        font-size: 0.7rem;
                     }
                 }
+
                 .contenido{
                     height: 300px;
                     width: 100%;
                     margin: 0;
                     padding: 0;
                     .ladoDebito{
-                        background-color: aquamarine;
                         height: 100%;
                         padding: 0;
                         /* ContenedorRegisto antiguo 2 */
 
                         .contenedorRegistro {
                             background-color: $color1;
-                            border: 3px solid gray;
+                            border: 1px solid gray;
                             width: 100%;
                             margin: 0;
                             padding: 0;
@@ -226,7 +241,7 @@ body {
                                 justify-content: center;
                                 align-items: auto;
                                 padding: 2px;
-                                font-size: 1.1rem;
+                                font-size: 0.7rem;
                                 height: 30px;
                             }
                             /* Lista de registros debito */
@@ -238,6 +253,7 @@ body {
                                 padding: 0px;
                                 .listaRegistros{
                                     background-color: beige;
+                                    font-size: 0.6rem;
                             
                                     .card{
                                         .card-header{
@@ -245,7 +261,8 @@ body {
                                             padding: 6px;
                                             h2{
                                                 button{
-                                                    text-align: right !important;
+                                                    text-align: right;
+                                                    font-size: 0.6rem;
                                                     
                                                 }
                                             }
@@ -260,20 +277,19 @@ body {
                                 font-size: 15px;
                                 .tituloSaldo{
                                     text-align: left;
-                                    font-size: 17px;
+                                    font-size: 0.7rem;
                                 }
                             }
                         }
                     }
                     .ladoCredito{
-                        background-color: cadetblue;
                         height: 100%;
                         padding: 0;
                         /* ContenedorRegisto antiguo 2 */
 
                         .contenedorRegistro {
                             background-color: $color4;
-                            border: 3px solid gray;
+                            border: 1px solid gray;
                             width: 100%;
                             margin: 0;
                             padding: 0;
@@ -283,7 +299,7 @@ body {
                                 justify-content: center;
                                 align-items: auto;
                                 padding: 2px;
-                                font-size: 1.1rem;
+                                font-size: 0.7rem;
                                 height: 30px;
                             }
 
@@ -298,6 +314,7 @@ body {
 
                                 .listaRegistros{
                                     background-color: beige;
+                                    font-size: 0.6rem;
                             
                                     .card{
                                         .card-header{
@@ -305,8 +322,8 @@ body {
                                             padding: 6px;
                                             h2{
                                                 button{
-                                                    text-align: right !important;
-                                                    
+                                                    text-align: right;
+                                                    font-size: 0.6rem;
                                                 }
                                             }
                                         }
@@ -320,14 +337,14 @@ body {
                                 font-size: 15px;
                                 .tituloSaldo{
                                     text-align: left;
-                                    font-size: 17px;
+                                    font-size: 0.7rem;
                                 }
                             }
                         }
                     }
                 }
+
                 .saldoTotal{
-                    background-color: whitesmoke;
                     text-align: center;
                     padding: 0px;
                     
@@ -339,16 +356,35 @@ body {
                     div{
                         width: 100%;
                         margin: 0px;
+                        padding: 0px;
                         .saldoIzquierda{
                             text-align: center;
-                            padding-left: 10px;
+                            padding: 0px 0px 0px 10px;
+                            margin: 0px;
                         }
                         .saldoDerecha{
                             text-align: center;
-                            padding-right: 10px;
+                            padding: 0px 10px 0px 0px;
+                            margin: 0px;
                         }
                     }
                 }
+                /* Cuando la cuenta no existe */
+                .cuentaInexistente{
+                    .btn-close{
+                        background-color: white;
+                        border-radius: 15px;
+                        border-style: none;
+                        width: 30px;
+                        height: 30px;
+                        margin: 4px 3px 4px 3px;
+                    }
+
+                    .btn-close:hover{
+                        background-color: #f5cbc6;
+                    }
+                }
+
             }
         }
 

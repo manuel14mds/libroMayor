@@ -96,19 +96,19 @@
             <div class="row cuentaUno">
                 <div class="col-sm-5">
                     <label for="fname">Cuenta 1</label><br>
-                    <input type="text" id="fname" name="fname" placeholder="Digite Código">
+                    <input type="text" id="fname" name="uno" placeholder="Digite Código">
                 </div>
                 <div class="col-sm-5">
                     <label for="quantity">Monto 1</label><br>
-                    <input type="number" id="quantity" name="quantity" placeholder="Digite el Monto">
+                    <input type="number" id="quantity" name="uno" placeholder="Digite el Monto">
                 </div>
                 <div class="col-sm-2">
                     <div>
-                        <input type="radio" id="check-deb1" name="fav_language" value="DEBITO">
+                        <input type="radio" id="check-deb1" name="uno" value="DEBITO">
                         <label for="html">Debitar</label>
                     </div>
                     <div>
-                        <input type="radio" id="check-cred1" name="fav_language" value="CREDITO">
+                        <input type="radio" id="check-cred1" name="uno" value="CREDITO">
                         <label for="html">Acreditar</label><br>
                     </div>
                 </div>
@@ -117,19 +117,19 @@
             <div class="row cuentaUno">
                 <div class="col-sm-5">
                     <label for="fname">Cuenta 2</label><br>
-                    <input type="text" id="fname" name="fname" placeholder="Digite Código">
+                    <input type="text" id="fname" name="dos" placeholder="Digite Código">
                 </div>
                 <div class="col-sm-5">
                     <label for="quantity">Monto 2</label><br>
-                    <input type="number" id="quantity" name="quantity" placeholder="Digite el Monto">
+                    <input type="number" id="quantity" name="dos" placeholder="Digite el Monto">
                 </div>
                 <div class="col-sm-2">
                     <div>
-                        <input type="radio" id="check-deb2" name="fav_language" value="DEBITO">
+                        <input type="radio" id="check-deb2" name="dos" value="DEBITO">
                         <label for="html">Debitar</label>
                     </div>
                     <div>
-                        <input type="radio" id="check-cred2" name="fav_language" value="CREDITO">
+                        <input type="radio" id="check-cred2" name="dos" value="CREDITO">
                         <label for="html">Acreditar</label><br>
                     </div>
                 </div>
@@ -138,19 +138,19 @@
             <div class="row cuentaUno">
                 <div class="col-sm-5">
                     <label for="fname">Cuenta 3</label><br>
-                    <input type="text" id="fname" name="fname" placeholder="Digite Código">
+                    <input type="text" id="fname" name="tres" placeholder="Digite Código">
                 </div>
                 <div class="col-sm-5">
                     <label for="quantity">Monto 3</label><br>
-                    <input type="number" id="quantity" name="quantity" placeholder="Digite el Monto">
+                    <input type="number" id="quantity" name="tres" placeholder="Digite el Monto">
                 </div>
                 <div class="col-sm-2">
                     <div>
-                        <input type="radio" id="check-deb3" name="fav_language" value="DEBITO">
+                        <input type="radio" id="check-deb3" name="tres" value="DEBITO">
                         <label for="html">Debitar</label>
                     </div>
                     <div>
-                        <input type="radio" id="check-cred3" name="fav_language" value="CREDITO">
+                        <input type="radio" id="check-cred3" name="tres" value="CREDITO">
                         <label for="html">Acreditar</label><br>
                     </div>
                 </div>
@@ -159,19 +159,19 @@
             <div class="row cuentaUno">
                 <div class="col-sm-5">
                     <label for="fname">Cuenta 4</label><br>
-                    <input type="text" id="fname" name="fname" placeholder="Digite Código">
+                    <input type="text" id="fname" name="cuatro" placeholder="Digite Código">
                 </div>
                 <div class="col-sm-5">
                     <label for="quantity">Monto 4</label><br>
-                    <input type="number" id="quantity" name="quantity" placeholder="Digite el Monto">
+                    <input type="number" id="quantity" name="cuatro" placeholder="Digite el Monto">
                 </div>
                 <div class="col-sm-2">
                     <div>
-                        <input type="radio" id="check-deb4" name="fav_language" value="DEBITO">
+                        <input type="radio" id="check-deb4" name="cuatro" value="DEBITO">
                         <label for="html">Debitar</label>
                     </div>
                     <div>
-                        <input type="radio" id="check-cred4" name="fav_language" value="CREDITO">
+                        <input type="radio" id="check-cred4" name="cuatro" value="CREDITO">
                         <label for="html">Acreditar</label><br>
                     </div>
                 </div>
@@ -200,16 +200,26 @@
         <section id="mostrarCuenta" class="mostrarCuenta container-sm">
             <div class="buscarCuenta container">
                 <h3>Mostrar Cuenta</h3>
-                <p>Digite el numero de cuenta a buscar, por ahora solo estan con movimientos la 11 y la 51</p>
-                <form class="form-inline row" action="">
+                <p>Digite el numero de cuenta a buscar</p>
+                <form id="formMostrarCuenta" class="form-inline row" action="">
                     <label class="col-sm-4" for="text">Código</label>
-                    <input type="text" class="form-control col-sm-4" placeholder="Ingrese código" id="codigo">
-                    <button type="button" class="btn btn-primary col-sm-4" data-toggle="collapse"
-                        data-target="#cuenta">Buscar</button>
+                    <input type="text" class="form-control col-sm-4" placeholder="Ingrese código" id="codigoMostrarCuenta">
+                    <button type="button" class="btn btn-primary col-sm-4"
+                        data-target="#cuenta" id="btn-mostrarCuenta">Buscar</button>
                 </form>
 
-                <div id="cuenta" class="cuenta collapse">
+                <div id="cuenta" class="cuenta">
 
+
+
+
+                    <!-- <div class="cuentaInexistente">
+                        <button class="btn-close"><i class="fa-solid fa-xmark"></i></button>
+                        <p>
+                            La Cuenta No Está Registrada. Revisa la <a href="#listaCuentas">lista </a> de 
+                            cuentas que ya estan registradas o por el contrario <a href="#crearCuenta">Creala</a>
+                        </p>
+                    </div> -->
                 </div>
 
             </div>
@@ -227,30 +237,12 @@
                         <p>Cuentas</p>
                     </div>
                     <div class="botones col">
-                        <button class="btn-reload"><i class="fa-solid fa-arrow-rotate-right"></i></button>
-                        <button class="btn-close"><i class="fa-solid fa-xmark"></i></button>
+                        <button id="btn-reload-listaCuentas" type="button" class="btn-reload"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+                        <button id="btn-close-listaCuentas" type="button" class="btn-close"><i class="fa-solid fa-xmark"></i></button>
                     </div>
                 </div>
                 <!-- En este contenedor se pondrán todas las listas de cada grupo  -->
-                <div class="contenidoListas">
-
-                    <!-- grupo de la cuenta -->
-                    <div class="grupo row container-fluid ">
-                        <p>Activos</p>
-                    </div>
-                    <!-- Encabezado de lista -->
-                    <div class="cabezaLista row container-fluid">
-                        <div class="col">Código</div>
-                        <div class="col">Nombre</div>
-                        <div class="col">Saldo Total</div>
-                    </div>
-
-                    <!-- fila de lista donde se inserta la informacion -->
-                    <div class="filaLista row container-fluid">
-                        <div class="col">1105</div>
-                        <div class="col">Caja</div>
-                        <div class="col">1500000</div>
-                    </div>
+                <div id="contenidoListas" class="contenidoListas">
 
                 </div>
             </div>
@@ -287,8 +279,9 @@
         crossorigin="anonymous"></script>
 
 
-    <!-- <script lang="javascript" src="./scripts/script.js"></script>
-    <script src="./scripts/dom.js"></script> -->
+    <script lang="javascript" src="./scripts/script.js"></script>
+    <script lang="javascript" src="./scripts/mostrarCuenta.js"></script>
+    <script lang="javascript" src="./scripts/listaCuentas.js"></script>
 </body>
 
 </html>
