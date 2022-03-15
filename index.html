@@ -63,25 +63,12 @@
                         <p>Cuentas</p>
                     </div>
                     <div class="botones col">
-                        <button class="btn-reload"><i class="fa-solid fa-arrow-rotate-right"></i></button>
-                        <button class="btn-close"><i class="fa-solid fa-xmark"></i></button>
+                        <button id="btn-reload-movimientos" class="btn-reload"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+                        <button id="btn-close-movimientos" class="btn-close"><i class="fa-solid fa-xmark"></i></button>
                     </div>
                 </div>
-                <!-- En este contenedor se pondrán todas las listas de cada grupo  -->
-                <div class="contenidoListas">
-                    <!-- Encabezado de lista -->
-                    <div class="cabezaLista row container-fluid">
-                        <div class="col">Código</div>
-                        <div class="col">Nombre</div>
-                        <div class="col">Saldo Total</div>
-                    </div>
-
-                    <!-- fila de lista donde se inserta la informacion -->
-                    <div class="filaLista row container-fluid">
-                        <div class="col">1105</div>
-                        <div class="col">Caja</div>
-                        <div class="col">1500000</div>
-                    </div>
+                <!-- En este contenedor se insertarán todas las listas de cada grupo  -->
+                <div id="contenidoListasMovimientos" class="contenidoListas">
 
                 </div>
             </div>
@@ -92,108 +79,115 @@
             <div class="TransInfo">
                 <h3>Transaccion</h3>
             </div>
+            <form action="" id="formTransaccion">
 
-            <div class="row cuentaUno">
-                <div class="col-sm-5">
-                    <label for="fname">Cuenta 1</label><br>
-                    <input type="text" id="fname" name="uno" placeholder="Digite Código">
-                </div>
-                <div class="col-sm-5">
-                    <label for="quantity">Monto 1</label><br>
-                    <input type="number" id="quantity" name="uno" placeholder="Digite el Monto">
-                </div>
-                <div class="col-sm-2">
-                    <div>
-                        <input type="radio" id="check-deb1" name="uno" value="DEBITO">
-                        <label for="html">Debitar</label>
+                <div class="row cuentaUno">
+                    <div class="col-sm-5">
+                        <label for="fname">Cuenta 1</label><br>
+                        <input type="text" id="codigo1" name="uno" placeholder="Digite Código">
                     </div>
-                    <div>
-                        <input type="radio" id="check-cred1" name="uno" value="CREDITO">
-                        <label for="html">Acreditar</label><br>
+                    <div class="col-sm-5">
+                        <label for="quantity">Monto 1</label><br>
+                        <input type="number" step=0.01 id="monto1" name="uno" placeholder="Digite el Monto">
+                    </div>
+                    <div class="col-sm-2">
+                        <div>
+                            <input type="radio" id="check-deb1" name="uno" value="DEBITO">
+                            <label for="html">Debitar</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="check-cred1" name="uno" value="CREDITO">
+                            <label for="html">Acreditar</label><br>
+                        </div>
                     </div>
                 </div>
-            </div>
+    
+                <div class="row cuentaUno">
+                    <div class="col-sm-5">
+                        <label for="fname">Cuenta 2</label><br>
+                        <input type="text" id="codigo2" name="dos" placeholder="Digite Código">
+                    </div>
+                    <div class="col-sm-5">
+                        <label for="quantity">Monto 2</label><br>
+                        <input type="number" step=0.01 id="monto2" name="dos" placeholder="Digite el Monto">
+                    </div>
+                    <div class="col-sm-2">
+                        <div>
+                            <input type="radio" id="check-deb2" name="dos" value="DEBITO">
+                            <label for="html">Debitar</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="check-cred2" name="dos" value="CREDITO">
+                            <label for="html">Acreditar</label><br>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row cuentaUno">
+                    <div class="col-sm-5">
+                        <label for="fname">Cuenta 3</label><br>
+                        <input type="text" id="codigo3" name="tres" placeholder="Digite Código">
+                    </div>
+                    <div class="col-sm-5">
+                        <label for="quantity">Monto 3</label><br>
+                        <input type="number" step=0.01 id="monto3" name="tres" placeholder="Digite el Monto">
+                    </div>
+                    <div class="col-sm-2">
+                        <div>
+                            <input type="radio" id="check-deb3" name="tres" value="DEBITO">
+                            <label for="html">Debitar</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="check-cred3" name="tres" value="CREDITO">
+                            <label for="html">Acreditar</label><br>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row cuentaUno">
+                    <div class="col-sm-5">
+                        <label for="fname">Cuenta 4</label><br>
+                        <input type="text" id="codigo4" name="cuatro" placeholder="Digite Código">
+                    </div>
+                    <div class="col-sm-5">
+                        <label for="quantity">Monto 4</label><br>
+                        <input type="number" step=0.01 id="monto4" name="cuatro" placeholder="Digite el Monto">
+                    </div>
+                    <div class="col-sm-2">
+                        <div>
+                            <input type="radio" id="check-deb4" name="cuatro" value="DEBITO">
+                            <label for="html">Debitar</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="check-cred4" name="cuatro" value="CREDITO">
+                            <label for="html">Acreditar</label><br>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row descripcion">
+                    <label class="descripcionTran col-sm-2" for="">Descripción</label>
+                    <textarea class="inputTrans col-sm-8" id="inputTrans" rows="1" cols="1" placeholder="Digite la descripcion de la transacción" required></textarea> 
+                    <div class="boton col-sm-2">
+                        <button id="btn-enviarTransaccion" type="button" class="btn btn-light ">Enviar</button>
+                    </div>
+                </div>
+            </form>
 
-            <div class="row cuentaUno">
-                <div class="col-sm-5">
-                    <label for="fname">Cuenta 2</label><br>
-                    <input type="text" id="fname" name="dos" placeholder="Digite Código">
-                </div>
-                <div class="col-sm-5">
-                    <label for="quantity">Monto 2</label><br>
-                    <input type="number" id="quantity" name="dos" placeholder="Digite el Monto">
-                </div>
-                <div class="col-sm-2">
-                    <div>
-                        <input type="radio" id="check-deb2" name="dos" value="DEBITO">
-                        <label for="html">Debitar</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="check-cred2" name="dos" value="CREDITO">
-                        <label for="html">Acreditar</label><br>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row cuentaUno">
-                <div class="col-sm-5">
-                    <label for="fname">Cuenta 3</label><br>
-                    <input type="text" id="fname" name="tres" placeholder="Digite Código">
-                </div>
-                <div class="col-sm-5">
-                    <label for="quantity">Monto 3</label><br>
-                    <input type="number" id="quantity" name="tres" placeholder="Digite el Monto">
-                </div>
-                <div class="col-sm-2">
-                    <div>
-                        <input type="radio" id="check-deb3" name="tres" value="DEBITO">
-                        <label for="html">Debitar</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="check-cred3" name="tres" value="CREDITO">
-                        <label for="html">Acreditar</label><br>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row cuentaUno">
-                <div class="col-sm-5">
-                    <label for="fname">Cuenta 4</label><br>
-                    <input type="text" id="fname" name="cuatro" placeholder="Digite Código">
-                </div>
-                <div class="col-sm-5">
-                    <label for="quantity">Monto 4</label><br>
-                    <input type="number" id="quantity" name="cuatro" placeholder="Digite el Monto">
-                </div>
-                <div class="col-sm-2">
-                    <div>
-                        <input type="radio" id="check-deb4" name="cuatro" value="DEBITO">
-                        <label for="html">Debitar</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="check-cred4" name="cuatro" value="CREDITO">
-                        <label for="html">Acreditar</label><br>
-                    </div>
-                </div>
-            </div>
-
-            <div class="boton">
-                <button type="submit" class="btn btn-light">Enviar</button>
-            </div>
         </section>
 
         <section id="crearCuenta" class="crearCuenta container-sm">
             <h3>Crear cuenta</h3>
-            <form>
+            <form id="formCrearCuenta">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Código De Cuenta</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1">
+                    <input type="text" class="form-control" id="codigoCrearCuenta" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Nombre De Cuenta</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1">
+                    <input type="text" class="form-control" id="nombreCrearCuenta" required>
                 </div>
-                <button type="submit" class="btn btn-light btnCrearCuenta">Submit</button>
+                <button id="btn-crearCuenta" type="button" class="btn btn-light btnCrearCuenta">Registrar</button>
             </form>
         </section>
 
@@ -282,6 +276,9 @@
     <script lang="javascript" src="./scripts/script.js"></script>
     <script lang="javascript" src="./scripts/mostrarCuenta.js"></script>
     <script lang="javascript" src="./scripts/listaCuentas.js"></script>
+    <script lang="javascript" src="./scripts/transaccion.js"></script>
+    <script lang="javascript" src="./scripts/listaMovimientos.js"></script>
+    <script lang="javascript" src="./scripts/crearCuenta.js"></script>
 </body>
 
 </html>

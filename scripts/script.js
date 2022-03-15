@@ -24,11 +24,11 @@ class Cuenta {
     }
     debitar(registro) {
         this.debito.push(registro)
-        this.saldoDebito += registro.monto
+        this.saldoDebito += Number(registro.monto)
     }
     acreditar(registro) {
         this.credito.push(registro)
-        this.saldoCredito += registro.monto
+        this.saldoCredito += Number(registro.monto)
     }
     saldarCuenta() {
         if (this.naturaleza == "DEBITO") {//-- si la naturaleza es debito
@@ -45,6 +45,7 @@ class Cuenta {
 
 function naturatezaCuenta(codigo) {// Me pide codigo de cuenta y me retorna su naturaleza
     const caracter=codigo.charAt(0)//me trael el primer caracter de la cadena
+
     switch (caracter) {
         case "1":
             return "DEBITO"
@@ -69,17 +70,15 @@ function generarCodigo(){ //genera un nuevo codigo, lo retorna y actualiza la se
 }
 
 function buscarCodigo(codigo, lista){//me devuelve un boolean si encuentra o no un objeto con el codigo en la lista
-    let encontrado = false
     for(elemento of lista){
         if(elemento.codigo == codigo){
-            encontrado = true
-            break
+            return true
         }
     }
-    return encontrado
+    return false
 }
 
-function obtenerCuenta(codigo){// me devuelve el objeto de una lista de cuentas
+function obtenerCuenta(codigo){// me devuelve el objeto de las listas de grupos
     let grupoCuenta = codigo.charAt(0)
     switch (grupoCuenta) {
         case "1":
@@ -126,46 +125,64 @@ function validarCuenta(codigo){ // me devuelve un boolean si la cuenta existe o 
     let grupoCuenta = naturatezaCuenta(codigo)
     switch (grupoCuenta) {
         case "1":
-            if(buscarCodigo(codigo, activos)){
-                return true
-            }
+            return buscarCodigo(codigo, activos)
         case "2":
-            if(buscarCodigo(codigo, pasivos)){
-                return true
-            }
+            return buscarCodigo(codigo, pasivos)
         case "3":
-            if(buscarCodigo(codigo, patrimonio)){
-                return true
-            }
+            return buscarCodigo(codigo, patrimonio)
         case "4":
-            if(buscarCodigo(codigo, ingresos)){
-                return true
-            }
+            return buscarCodigo(codigo, ingresos)
         case "5":
-            if(buscarCodigo(codigo, gastos)){
-                return true
-            }
+            return buscarCodigo(codigo, gastos)
         case "6":
-            if(buscarCodigo(codigo, costos)){
-                return true
-            }
+            return buscarCodigo(codigo, costos)
         }
-        return false
 }
 
 function crearCuenta(codigo, nombre){ // se crea una nueva cuenta
-    while(naturatezaCuenta(codigo)=="INDEFINIDO"){//valido si el codigo pertenece a un grupo de cuentas
-        codigo=prompt("Digite un codigo de cuenta entre los grupos de 1 y 6")
-    }
-    while(validarCuenta(codigo)){// valido si la cuenta existe
-        if(confirm("la cuenta ya existe, desea utilizar la cuenta existente?")){
-            return obtenerCuenta(codigo)
+    if(naturatezaCuenta(codigo)=="INDEFINIDO"){//valido si el codigo pertenece a un grupo de cuentas
+        alert("Digite un codigo de cuenta entre los grupos de 1 y 6")
+    }else{
+        if(obtenerCuenta(codigo) != null){// valido si la cuenta existe
+            alert("La cuenta ya ha sido registrada anteriormente.")
         }else{
-            codigo=prompt("Digite otro codigo")
+            return nuevaCuenta = new Cuenta(codigo, nombre)
         }
     }
-    const nuevaCuenta = new Cuenta(codigo, nombre)
-    return nuevaCuenta
+}
+
+function registrarCuenta(cuenta){// recive una nueva cuenta y la registra en su respectivo grupo
+    let codigo = cuenta.codigo //obtengo el codigo de la cuenta
+    const caracter=codigo.charAt(0)//me trael el primer caracter de la cadena del codigo
+    switch (caracter) {
+        case "1":
+            activos.unshift(cuenta)
+            alert("Registro exitoso, como tu! ;)")
+            break
+        case "2":
+            pasivos.unshift(cuenta)
+            alert("Registro exitoso, como tu! ;)")
+            break
+        case "3":
+            patrimonio.unshift(cuenta)
+            alert("Registro exitoso, como tu! ;)")
+            break
+        case "4":
+            ingresos.unshift(cuenta)
+            alert("Registro exitoso, como tu! ;)")
+            break
+        case "5":
+            gastos.unshift(cuenta)
+            alert("Registro exitoso, como tu! ;)")
+            break
+        case "6":
+            costos.unshift(cuenta)
+            alert("Registro exitoso, como tu! ;)")
+            break
+        default:
+            alert("Error inesperado. No se pudo registrar la cuenta") 
+    }
+
 }
 
 function generarFecha(){//genera una cadena con la fecha y lo retorna
@@ -174,8 +191,7 @@ function generarFecha(){//genera una cadena con la fecha y lo retorna
     return(output)
 }
 
-function crearRegistro(monto, descripcion){  //  crea y retorna un nuevo registro
-    let codigo=generarCodigo()
+function crearRegistro(monto, descripcion, codigo){  //  crea y retorna un nuevo registro
     let fecha=generarFecha()
     nuevoRegistro = new Registro(codigo, fecha, monto, descripcion)
     return nuevoRegistro
@@ -190,60 +206,44 @@ function validarOperacion(valor, opcionA, opcionB){//valida que el valor tenga c
     return valor
 }
 
-function crearTransaccion(registro, cuentaUno, cuentaDos){ // genera una transaccion entre dos cuentas
-    let operacion = prompt(`digite el nombre de la operacion que desea en la cuenta ${cuentaUno.nombre}:
-    - acreditar
-    - debitar`)
-    operacion = validarOperacion(operacion, "acreditar", "debitar")
-    if(operacion=="acreditar"){
-        cuentaUno.acreditar(registro)
-    }else{
-        cuentaUno.debitar(registro)
+function cuentasConMovim(){ //Devuelve una lista de todas las cuentas con movimientos
+    //Agrupo todas las cuentas de los grupos en una sola
+    let todasCuentas=[activos, pasivos, patrimonio, ingresos, gastos, costos]
+
+    //Crea una nueva lista para guardar todos las cuentas con movimientos
+    let lista = []
+
+    //nueva lista donde se almacenan cada grupo de cuentas
+    let nuevaLista = []
+
+    //recorre toda la lista de grupos y por cada grupo filtra las cuentas con saldos
+    for(grupo of todasCuentas){
+        nuevaLista = grupo.filter(element => element.saldoTotal != null)
+        for (cuenta of nuevaLista){
+            lista.push(cuenta)
+        }
     }
-    operacion = prompt(`digite el nombre de la operacion que desea en la cuenta ${cuentaDos.nombre}:
-    - acreditar
-    - debitar`)
-    operacion = validarOperacion(operacion, "acreditar", "debitar")
-    if(operacion=="acreditar"){
-        cuentaDos.acreditar(registro)
-    }else{
-        cuentaDos.debitar(registro)
-    }
-    cuentaUno.saldarCuenta()
-    cuentaDos.saldarCuenta()
+    return lista
 }
 
-function listarCuentasTrans(){ //imprime lista de solo las cuentas que tienen movimientos
-    let nuevaLista= activos.filter(element => element.saldoTotal != null)
-    if(nuevaLista.length != 0){
-        console.log(nuevaLista)
+//recibe una lista de objetos literales(obj{codigo:11, monto:500, operacion:debitar, descripcion:"sin descripcion"})
+//Guarda los nuevos registros en las cuentas traidas por la lista de objetos
+function generarTransaccion(lista){
+    let cuenta
+    let nuevoRegistro
+    let nuevoCodigo = generarCodigo()
+    //obj{codigo:11, monto:500, operacion:debitar, descripcion:"sin descripcion"}
+    for(obj of lista){
+        nuevoRegistro=crearRegistro(obj.monto, obj.descripcion, nuevoCodigo)
+        cuenta=obtenerCuenta(obj.codigo)
+        if(obj.operacion == "DEBITAR"){
+            cuenta.debitar(nuevoRegistro)
+        }else{
+            cuenta.acreditar(nuevoRegistro)
+        }
+        cuenta.saldarCuenta()
     }
-    
-    nuevaLista= pasivos.filter(element => element.saldoTotal != null)
-    if(nuevaLista.length != 0){
-        console.log(nuevaLista)
-    }
-    
-    nuevaLista= patrimonio.filter(element => element.saldoTotal != null)
-    if(nuevaLista.length != 0){
-        console.log(nuevaLista)
-    }
-
-    nuevaLista= ingresos.filter(element => element.saldoTotal != null)
-    if(nuevaLista.length != 0){
-        console.log(nuevaLista)
-    }
-
-    nuevaLista= gastos.filter(element => element.saldoTotal != null)
-    if(nuevaLista.length != 0){
-        console.log(nuevaLista)
-    }
-
-    nuevaLista= costos.filter(element => element.saldoTotal != null)
-    if(nuevaLista.length != 0){
-        console.log(nuevaLista)
-    }
-    
+    alert("Transaccion Exitosa")
 }
 
 //                                  ############ Variables Globales ################
@@ -252,24 +252,23 @@ let secuenciaCodigo = 100 //variable que me secuencia el codigo de registros
 
 //                                  ############       Listas       ################
 // Creacion lista de cuentas de activos
-let nuevacuenta
 const activos = [
-    nuevacuenta=new Cuenta("11", "disponible"),
-    nuevacuenta=new Cuenta("13", "deudores"),
-    nuevacuenta=new Cuenta("14", "inventarios"),
-    nuevacuenta=new Cuenta("191", "Agrupacion de activos no corrientes")
+    new Cuenta("11", "disponible"),
+    new Cuenta("13", "deudores"),
+    new Cuenta("14", "inventarios"),
+    new Cuenta("191", "Agrupacion de activos no corrientes")
 ]
 // Creacion lista de cuentas de pasivos
 const pasivos = [
-    nuevacuenta=new Cuenta("21", "obligaciones financieras"),
-    nuevacuenta=new Cuenta("22", "proveedores"),
-    nuevacuenta=new Cuenta("23", "cuentas por pagar")
+    new Cuenta("21", "obligaciones financieras"),
+    new Cuenta("22", "proveedores"),
+    new Cuenta("23", "cuentas por pagar")
 ]
 // Creacion lista de cuentas de patrimonio
 const patrimonio = [
-    nuevacuenta=new Cuenta("31", "capital social"),
-    nuevacuenta=new Cuenta("36", "Resultado del ejercisio"),
-    nuevacuenta=new Cuenta("33", "reservas")
+    new Cuenta("31", "capital social"),
+    new Cuenta("36", "Resultado del ejercisio"),
+    new Cuenta("33", "reservas")
 ]
 // Creacion lista de cuentas de ingresos
 const ingresos = []
@@ -281,7 +280,7 @@ const costos = []
 
 
 
-let registroNuevo = crearRegistro(50000000000, "prestamo de efectivo en el banco")//creo un registro
+/* let registroNuevo = crearRegistro(50000000000, "prestamo de efectivo en el banco")//creo un registro
 console.log(registroNuevo)
 let cuentaA = obtenerCuenta("11")// busco una cuenta ya creada
 console.log(cuentaA)
@@ -289,13 +288,12 @@ let cuentaB = crearCuenta("51", "Gastos Operacionales")// creo una nueva cuenta
 gastos.push(cuentaB)// agrego la nueva cuenta creada a la lista de cuentas de grupo gastos
 console.log(cuentaB)
 crearTransaccion(registroNuevo, cuentaA, cuentaB)// creo una transaccion con las dos cuentas
+ */
 
 
 
-
-console.table(activos)// muestro la tabla de la lista activos
+/* console.table(activos)// muestro la tabla de la lista activos
 console.table(gastos)// muestro las de gastos
 
 listarCuentasTrans()// listo las cuentas que ya tienen movimientos
-
-
+ */

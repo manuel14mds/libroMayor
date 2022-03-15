@@ -115,6 +115,22 @@ body main .cuentasMov .lista .contenidoListas .filaLista div {
   background-color: white;
 }
 
+body main .cuentasMov .lista .contenidoListas .sinMovimientos {
+  width: 80%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  border: 1px black solid;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: white;
+}
+
+body main .cuentasMov .lista .contenidoListas .sinMovimientos p {
+  margin: 0px;
+  padding: 0px;
+}
+
 body main .transaccion {
   background-color: #979797;
   border-radius: 5px;
@@ -122,30 +138,25 @@ body main .transaccion {
   margin-bottom: 0.5rem;
 }
 
-body main .transaccion .TransInfo p {
-  margin: 0px;
-  padding: 0px;
-}
-
-body main .transaccion .row {
+body main .transaccion form .row {
   font-size: 0.7rem;
   border-style: dashed none none none;
   border-width: 1px;
 }
 
-body main .transaccion .row .col-sm-5 {
+body main .transaccion form .row .col-sm-5 {
   text-align: center;
 }
 
-body main .transaccion .row .col-sm-5 input {
+body main .transaccion form .row .col-sm-5 input {
   width: 100%;
 }
 
-body main .transaccion .row .col-sm-5 label {
+body main .transaccion form .row .col-sm-5 label {
   margin: 2px;
 }
 
-body main .transaccion .row .col-sm-2 {
+body main .transaccion form .row .col-sm-2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -158,14 +169,15 @@ body main .transaccion .row .col-sm-2 {
           align-items: flex-start;
 }
 
-body main .transaccion .boton {
+body main .transaccion form .descripcion {
   margin-top: 4px;
+  padding-top: 4px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body main .crearCuenta {
