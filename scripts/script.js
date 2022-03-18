@@ -22,7 +22,7 @@ class Cuenta {
         this.saldoCredito = 0
         this.saldoTotal = null
     }
-    debitar(registro) {
+    debitar(registro){
         this.debito.push(registro)
         this.saldoDebito += Number(registro.monto)
     }
@@ -42,6 +42,36 @@ class Cuenta {
 }
 
 //                                     ############ Funciones ################
+// captura el valor de la secuencia del storage
+function capturarSecuenciaCodigo(){
+    let secuencia= JSON.parse(localStorage.getItem("secuenciaCodigo"))
+    
+    if(secuencia == null){
+        return 100
+    }
+    return secuencia
+}
+
+// Actualiza el valor de la secuencia del storage
+function actualizarSecuenciaCodigo(secuencia){
+    localStorage.setItem("secuenciaCodigo",JSON.stringify(secuencia))
+}
+
+//Trae la informacion de todas las listas del storage
+//Devuelve una lista con todas las cuentas
+function capturarInfoStotage(){
+    let listaGeneral= JSON.parse(localStorage.getItem("GrupoCuentas"))
+    if(listaGeneral == null || listaGeneral == undefined){
+        return []
+    }
+    return listaGeneral
+}
+
+//me guarda y modifica la informacion al storage
+function actualizarInfoStrorage(listaGeneral){
+    localStorage.setItem("GrupoCuentas",JSON.stringify(listaGeneral))
+
+}
 
 function naturatezaCuenta(codigo) {// Me pide codigo de cuenta y me retorna su naturaleza
     const caracter=codigo.charAt(0)//me trael el primer caracter de la cadena
@@ -65,8 +95,10 @@ function naturatezaCuenta(codigo) {// Me pide codigo de cuenta y me retorna su n
 }
 
 function generarCodigo(){ //genera un nuevo codigo, lo retorna y actualiza la secuencia
-    secuenciaCodigo++
-    return secuenciaCodigo
+    secuencia=capturarSecuenciaCodigo()
+    secuencia++
+    actualizarSecuenciaCodigo(secuencia)
+    return secuencia
 }
 
 function buscarCodigo(codigo, lista){//me devuelve un boolean si encuentra o no un objeto con el codigo en la lista
@@ -78,41 +110,41 @@ function buscarCodigo(codigo, lista){//me devuelve un boolean si encuentra o no 
     return false
 }
 
-function obtenerCuenta(codigo){// me devuelve el objeto de las listas de grupos
+function obtenerCuenta(codigo, listaTodasCuentas){// me devuelve el objeto de las listas de grupos
     let grupoCuenta = codigo.charAt(0)
     switch (grupoCuenta) {
         case "1":
-            for(elemento of activos){
+            for(elemento of listaTodasCuentas[0]){
                 if(elemento.codigo == codigo){
                     return elemento
                 }
             }
         case "2":
-            for(elemento of pasivos){
+            for(elemento of listaTodasCuentas[1]){
                 if(elemento.codigo == codigo){
                     return elemento
                 }
             }
         case "3":
-            for(elemento of patrimonio){
+            for(elemento of listaTodasCuentas[2]){
                 if(elemento.codigo == codigo){
                     return elemento
                 }
             }
         case "4":
-            for(elemento of ingresos){
+            for(elemento of listaTodasCuentas[3]){
                 if(elemento.codigo == codigo){
                     return elemento
                 }
             }
         case "5":
-            for(elemento of gastos){
+            for(elemento of listaTodasCuentas[4]){
                 if(elemento.codigo == codigo){
                     return elemento
                 }
             }
         case "6":
-            for(elemento of costos){
+            for(elemento of listaTodasCuentas[5]){
                 if(elemento.codigo == codigo){
                     return elemento
                 }
@@ -122,20 +154,21 @@ function obtenerCuenta(codigo){// me devuelve el objeto de las listas de grupos
 }
 
 function validarCuenta(codigo){ // me devuelve un boolean si la cuenta existe o no 
+    let listaTodasCuentas = capturarInfoStotage()
     let grupoCuenta = naturatezaCuenta(codigo)
     switch (grupoCuenta) {
         case "1":
-            return buscarCodigo(codigo, activos)
+            return buscarCodigo(codigo, listaTodasCuentas[0])
         case "2":
-            return buscarCodigo(codigo, pasivos)
+            return buscarCodigo(codigo, listaTodasCuentas[1])
         case "3":
-            return buscarCodigo(codigo, patrimonio)
+            return buscarCodigo(codigo, listaTodasCuentas[2])
         case "4":
-            return buscarCodigo(codigo, ingresos)
+            return buscarCodigo(codigo, listaTodasCuentas[3])
         case "5":
-            return buscarCodigo(codigo, gastos)
+            return buscarCodigo(codigo, listaTodasCuentas[4])
         case "6":
-            return buscarCodigo(codigo, costos)
+            return buscarCodigo(codigo, listaTodasCuentas[5])
         }
 }
 
@@ -152,37 +185,40 @@ function crearCuenta(codigo, nombre){ // se crea una nueva cuenta
 }
 
 function registrarCuenta(cuenta){// recive una nueva cuenta y la registra en su respectivo grupo
+    let listaTodasCuentas = capturarInfoStotage()
+
     let codigo = cuenta.codigo //obtengo el codigo de la cuenta
     const caracter=codigo.charAt(0)//me trael el primer caracter de la cadena del codigo
     switch (caracter) {
         case "1":
-            activos.unshift(cuenta)
+            listaTodasCuentas[0].unshift(cuenta)
             alert("Registro exitoso, como tu! ;)")
             break
         case "2":
-            pasivos.unshift(cuenta)
+            listaTodasCuentas[1].unshift(cuenta)
             alert("Registro exitoso, como tu! ;)")
             break
         case "3":
-            patrimonio.unshift(cuenta)
+            listaTodasCuentas[2].unshift(cuenta)
             alert("Registro exitoso, como tu! ;)")
             break
         case "4":
-            ingresos.unshift(cuenta)
+            listaTodasCuentas[3].unshift(cuenta)
             alert("Registro exitoso, como tu! ;)")
             break
         case "5":
-            gastos.unshift(cuenta)
+            listaTodasCuentas[4].unshift(cuenta)
             alert("Registro exitoso, como tu! ;)")
             break
         case "6":
-            costos.unshift(cuenta)
+            listaTodasCuentas[5].unshift(cuenta)
             alert("Registro exitoso, como tu! ;)")
             break
         default:
             alert("Error inesperado. No se pudo registrar la cuenta") 
     }
 
+    actualizarInfoStrorage(listaTodasCuentas)
 }
 
 function generarFecha(){//genera una cadena con la fecha y lo retorna
@@ -208,7 +244,7 @@ function validarOperacion(valor, opcionA, opcionB){//valida que el valor tenga c
 
 function cuentasConMovim(){ //Devuelve una lista de todas las cuentas con movimientos
     //Agrupo todas las cuentas de los grupos en una sola
-    let todasCuentas=[activos, pasivos, patrimonio, ingresos, gastos, costos]
+    let todasCuentas = capturarInfoStotage()
 
     //Crea una nueva lista para guardar todos las cuentas con movimientos
     let lista = []
@@ -229,25 +265,39 @@ function cuentasConMovim(){ //Devuelve una lista de todas las cuentas con movimi
 //recibe una lista de objetos literales(obj{codigo:11, monto:500, operacion:debitar, descripcion:"sin descripcion"})
 //Guarda los nuevos registros en las cuentas traidas por la lista de objetos
 function generarTransaccion(lista){
+    //me traigo los datos desde Storage
+    let listaTodasCuentas = capturarInfoStotage()
+
     let cuenta
     let nuevoRegistro
     let nuevoCodigo = generarCodigo()
     //obj{codigo:11, monto:500, operacion:debitar, descripcion:"sin descripcion"}
     for(obj of lista){
         nuevoRegistro=crearRegistro(obj.monto, obj.descripcion, nuevoCodigo)
-        cuenta=obtenerCuenta(obj.codigo)
+        cuenta = obtenerCuenta(obj.codigo, listaTodasCuentas)
         if(obj.operacion == "DEBITAR"){
-            cuenta.debitar(nuevoRegistro)
+            /* console.log(cuenta.saldoTotal)
+            cuenta.debitar(nuevoRegistro) */
+            cuenta.debito.push(nuevoRegistro)
+            cuenta.saldoDebito += Number(nuevoRegistro.monto)
         }else{
-            cuenta.acreditar(nuevoRegistro)
+            /* cuenta.acreditar(nuevoRegistro) */
+            cuenta.credito.push(nuevoRegistro)
+            cuenta.saldoCredito += Number(nuevoRegistro.monto)
         }
-        cuenta.saldarCuenta()
+        /* cuenta.saldarCuenta() */
+        if (cuenta.naturaleza == "DEBITO") {//-- si la naturaleza es debito
+            cuenta.saldoTotal = cuenta.saldoDebito - cuenta.saldoCredito
+        } else if(cuenta.naturaleza == "CREDITO"){// Si la naturaleza es credito
+            cuenta.saldoTotal = cuenta.saldoCredito - cuenta.saldoDebito
+        }else{
+            alert("Error al saldar cuenta")
+        }
     }
+    actualizarInfoStrorage(listaTodasCuentas)
     alert("Transaccion Exitosa")
 }
 
-//                                  ############ Variables Globales ################
-let secuenciaCodigo = 100 //variable que me secuencia el codigo de registros
 
 
 //                                  ############       Listas       ################
@@ -276,24 +326,14 @@ const ingresos = []
 const gastos = []
 // Creacion lista de cuentas de costo de ventas
 const costos = []
-// por el momento solo se registrará la transacciones que involucren dos cuentas
 
 
 
-/* let registroNuevo = crearRegistro(50000000000, "prestamo de efectivo en el banco")//creo un registro
-console.log(registroNuevo)
-let cuentaA = obtenerCuenta("11")// busco una cuenta ya creada
-console.log(cuentaA)
-let cuentaB = crearCuenta("51", "Gastos Operacionales")// creo una nueva cuenta
-gastos.push(cuentaB)// agrego la nueva cuenta creada a la lista de cuentas de grupo gastos
-console.log(cuentaB)
-crearTransaccion(registroNuevo, cuentaA, cuentaB)// creo una transaccion con las dos cuentas
- */
+//grupo de todas las cuentas
+
+if(JSON.parse(localStorage.getItem("GrupoCuentas")) == null){
+    const listaGrupo=[activos, pasivos, patrimonio, ingresos, gastos, costos]
+    actualizarInfoStrorage(listaGrupo)
+}
 
 
-
-/* console.table(activos)// muestro la tabla de la lista activos
-console.table(gastos)// muestro las de gastos
-
-listarCuentasTrans()// listo las cuentas que ya tienen movimientos
- */

@@ -235,8 +235,6 @@ function stringCuentaHTML(cuenta){
         }
     }
     
-    
-    console.log(string)
     return string
 }
 
@@ -246,11 +244,41 @@ function obtenerCodigoCuenta(){
 }
 
 // Evento para el botón buscar de (Mostrar Cuenta)
+/* let enterMostrarCuenta = document.getElementById("codigoMostrarCuenta")
+enterMostrarCuenta.addEventListener("keydown", (event) => {
+    
+    event.preventDefault();
+    if(event.which === 13){
+
+        let codigo = obtenerCodigoCuenta()
+        let cuenta = obtenerCuenta(codigo)
+
+        let contenedorMostrar = document.getElementById("cuenta")
+        contenedorMostrar.textContent = ""
+        let nombreHTML = document.createElement("div")
+
+        nombreHTML.innerHTML= stringCuentaHTML(cuenta)
+        contenedorMostrar.appendChild(nombreHTML)
+
+        //limpia el texto ingresado de la casilla input
+        document.getElementById("formMostrarCuenta").reset()
+
+        let btnCerrarMostrarCuenta = document.getElementById("btn-close-mostarCuenta")
+        btnCerrarMostrarCuenta.addEventListener("click", () => {
+        let contMostrar = document.getElementById("cuenta")
+        contMostrar.textContent = ""
+    })
+    }
+
+}) */
+
+
 let btnMostrarCuenta = document.getElementById("btn-mostrarCuenta")
 btnMostrarCuenta.addEventListener("click", () => {
 
     let codigo = obtenerCodigoCuenta()
-    let cuenta = obtenerCuenta(codigo)
+    let cuenta = obtenerCuenta(codigo, capturarInfoStotage())
+    console.log("mostrar: "+cuenta)
 
     let contenedorMostrar = document.getElementById("cuenta")
     contenedorMostrar.textContent = ""

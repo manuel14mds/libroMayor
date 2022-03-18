@@ -4,7 +4,7 @@
 function stringListaHTML(){
     let string=""
     let nombreCuentas=["Activos", "Pasivos", "Patrimonio", "Ingresos", "Gastos", "Costos"]
-    let agrupacionLista = [activos, pasivos, patrimonio, ingresos, gastos, costos]
+    let agrupacionLista = capturarInfoStotage()
 
     let i=0 //contador
     for(lista of agrupacionLista){
