@@ -36,7 +36,12 @@ class Cuenta {
         } else if(this.naturaleza == "CREDITO"){// Si la naturaleza es credito
             this.saldoTotal = this.saldoCredito - this.saldoDebito
         }else{
-            alert("Error al saldar cuenta")
+            //sweetAlert
+            Swal.fire({
+                title: "Error",
+                text: "No se pudo saldar la cuenta", 
+                icon: "error"
+            })
         }
     }
 }
@@ -46,6 +51,7 @@ class Cuenta {
 function capturarSecuenciaCodigo(){
     let secuencia= JSON.parse(localStorage.getItem("secuenciaCodigo"))
     
+    //Si no hay secuencia, que la inicialice en 100
     if(secuencia == null){
         return 100
     }
@@ -102,7 +108,7 @@ function generarCodigo(){ //genera un nuevo codigo, lo retorna y actualiza la se
 }
 
 function buscarCodigo(codigo, lista){//me devuelve un boolean si encuentra o no un objeto con el codigo en la lista
-    for(elemento of lista){
+    for(const elemento of lista){
         if(elemento.codigo == codigo){
             return true
         }
@@ -114,37 +120,37 @@ function obtenerCuenta(codigo, listaTodasCuentas){// me devuelve el objeto de la
     let grupoCuenta = codigo.charAt(0)
     switch (grupoCuenta) {
         case "1":
-            for(elemento of listaTodasCuentas[0]){
+            for(const elemento of listaTodasCuentas[0]){
                 if(elemento.codigo == codigo){
                     return elemento
                 }
             }
         case "2":
-            for(elemento of listaTodasCuentas[1]){
+            for(const elemento of listaTodasCuentas[1]){
                 if(elemento.codigo == codigo){
                     return elemento
                 }
             }
         case "3":
-            for(elemento of listaTodasCuentas[2]){
+            for(const elemento of listaTodasCuentas[2]){
                 if(elemento.codigo == codigo){
                     return elemento
                 }
             }
         case "4":
-            for(elemento of listaTodasCuentas[3]){
+            for(const elemento of listaTodasCuentas[3]){
                 if(elemento.codigo == codigo){
                     return elemento
                 }
             }
         case "5":
-            for(elemento of listaTodasCuentas[4]){
+            for(const elemento of listaTodasCuentas[4]){
                 if(elemento.codigo == codigo){
                     return elemento
                 }
             }
         case "6":
-            for(elemento of listaTodasCuentas[5]){
+            for(const elemento of listaTodasCuentas[5]){
                 if(elemento.codigo == codigo){
                     return elemento
                 }
@@ -173,52 +179,65 @@ function validarCuenta(codigo){ // me devuelve un boolean si la cuenta existe o 
 }
 
 function crearCuenta(codigo, nombre){ // se crea una nueva cuenta
+    let listaTodasCuentas = capturarInfoStotage()
     if(naturatezaCuenta(codigo)=="INDEFINIDO"){//valido si el codigo pertenece a un grupo de cuentas
-        alert("Digite un codigo de cuenta entre los grupos de 1 y 6")
+        //SweetAlert 
+        Swal.fire({
+            title: "Error",
+            text: "Solo puede ingresar codigo del grupo de cuentas de la 1 a la 6", 
+            icon: "error"
+        })
+
     }else{
-        if(obtenerCuenta(codigo) != null){// valido si la cuenta existe
-            alert("La cuenta ya ha sido registrada anteriormente.")
+        if(obtenerCuenta(codigo, listaTodasCuentas) != null){// valido si la cuenta existe
+            //SweetAlert 
+            Swal.fire({
+                title: "Error",
+                text: "La cuenta ya ha sido registrada anteriormente", 
+                icon: "error"
+            })
+
         }else{
             return nuevaCuenta = new Cuenta(codigo, nombre)
         }
     }
 }
 
-function registrarCuenta(cuenta){// recive una nueva cuenta y la registra en su respectivo grupo
+// recive una nueva cuenta, la registra en su respectivo grupo, actualiza el storage
+// me retorna un string si la cuenta se registró o no
+function registrarCuenta(cuenta){
+    //traigo la lista de todas las cuentas del storage
     let listaTodasCuentas = capturarInfoStotage()
 
+    let estado = true
     let codigo = cuenta.codigo //obtengo el codigo de la cuenta
     const caracter=codigo.charAt(0)//me trael el primer caracter de la cadena del codigo
     switch (caracter) {
         case "1":
             listaTodasCuentas[0].unshift(cuenta)
-            alert("Registro exitoso, como tu! ;)")
             break
         case "2":
             listaTodasCuentas[1].unshift(cuenta)
-            alert("Registro exitoso, como tu! ;)")
             break
         case "3":
             listaTodasCuentas[2].unshift(cuenta)
-            alert("Registro exitoso, como tu! ;)")
             break
         case "4":
             listaTodasCuentas[3].unshift(cuenta)
-            alert("Registro exitoso, como tu! ;)")
             break
         case "5":
             listaTodasCuentas[4].unshift(cuenta)
-            alert("Registro exitoso, como tu! ;)")
             break
         case "6":
             listaTodasCuentas[5].unshift(cuenta)
-            alert("Registro exitoso, como tu! ;)")
             break
         default:
-            alert("Error inesperado. No se pudo registrar la cuenta") 
+            estado = false
     }
 
     actualizarInfoStrorage(listaTodasCuentas)
+
+    return estado
 }
 
 function generarFecha(){//genera una cadena con la fecha y lo retorna
@@ -233,15 +252,6 @@ function crearRegistro(monto, descripcion, codigo){  //  crea y retorna un nuevo
     return nuevoRegistro
 }
 
-function validarOperacion(valor, opcionA, opcionB){//valida que el valor tenga como resultado uno de las dos opciones y lo retorna
-    while(valor != opcionA && valor != opcionB){
-        valor=prompt(`XX opcion invalida Xx. digite el numero de la opcion que desea seleccionar:
-        - ${opcionA}
-        - ${opcionB}`)
-    }
-    return valor
-}
-
 function cuentasConMovim(){ //Devuelve una lista de todas las cuentas con movimientos
     //Agrupo todas las cuentas de los grupos en una sola
     let todasCuentas = capturarInfoStotage()
@@ -253,9 +263,9 @@ function cuentasConMovim(){ //Devuelve una lista de todas las cuentas con movimi
     let nuevaLista = []
 
     //recorre toda la lista de grupos y por cada grupo filtra las cuentas con saldos
-    for(grupo of todasCuentas){
+    for(const grupo of todasCuentas){
         nuevaLista = grupo.filter(element => element.saldoTotal != null)
-        for (cuenta of nuevaLista){
+        for (const cuenta of nuevaLista){
             lista.push(cuenta)
         }
     }
@@ -272,7 +282,7 @@ function generarTransaccion(lista){
     let nuevoRegistro
     let nuevoCodigo = generarCodigo()
     //obj{codigo:11, monto:500, operacion:debitar, descripcion:"sin descripcion"}
-    for(obj of lista){
+    for(const obj of lista){
         nuevoRegistro=crearRegistro(obj.monto, obj.descripcion, nuevoCodigo)
         cuenta = obtenerCuenta(obj.codigo, listaTodasCuentas)
         if(obj.operacion == "DEBITAR"){
@@ -291,11 +301,22 @@ function generarTransaccion(lista){
         } else if(cuenta.naturaleza == "CREDITO"){// Si la naturaleza es credito
             cuenta.saldoTotal = cuenta.saldoCredito - cuenta.saldoDebito
         }else{
-            alert("Error al saldar cuenta")
+            //SweetAlert
+            Swal.fire({
+                title: "Error",
+                text: "No se pudo saldar la cuenta", 
+                icon: "error"
+            })
+            
         }
     }
     actualizarInfoStrorage(listaTodasCuentas)
-    alert("Transaccion Exitosa")
+
+    //SweetAlert
+    Swal.fire({
+        title: "Transaccion Exitosa",
+        icon: "success"
+    })
 }
 
 

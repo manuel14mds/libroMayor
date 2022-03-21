@@ -17,7 +17,7 @@ function validarDatosObjeto(obj){ //me validara si un objeto esta con los valore
 // Devuelve una lista de los objetos que si estan completos para transar(lista validada)
 function validarCamposLista(lista){
     let nuevaLista=[]
-    for(obj of lista){
+    for(const obj of lista){
         if(validarDatosObjeto(obj)){
             nuevaLista.push(obj)
         }
@@ -28,7 +28,7 @@ function validarCamposLista(lista){
 //Recibe la lista de cuentas que SI tienen sus datos completos
 //Devuelve True si todas las cuentas ya están registradas
 function validarCuentasAptas(lista){
-    for(obj of lista){
+    for(const obj of lista){
         if(validarCuenta(obj.codigo) == false){
             return false
         }
@@ -91,11 +91,22 @@ btnEnviarTransaccion.addEventListener("click", () => {
     //valido si la lista  tiene por lo menos dos cuentas llenas
     if(lista.length < 2){
         alert("Por lo menos deben estar dos cuentas funcionando correctamente")
+        //SweetAlert
+        Swal.fire({
+            title: "Operacion Invalida",
+            text: "La transaccion deben afectar por lo menos dos cuentas, revise los campos ", 
+            icon: "warning"
+        })
     }else{
 
         //valido si las cuentas ya estan creadas
         if(validarCuentasAptas(lista) == false){
-            alert("Operacion invalida, verifique si las cuentas ya están registradas")
+            //SweetAlert
+            Swal.fire({
+                title: "Operacion Invalida",
+                text: "No se pudo realizar la transaccion, verifique si las cuentas ya están registradas", 
+                icon: "warning"
+            })
         }else{
 
             generarTransaccion(lista)

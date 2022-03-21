@@ -20,7 +20,7 @@ function stringCuentaHTML(cuenta){
         
         let registrosDebitoHTML = ""
         let registrosCreditoHTML = ""
-        for(registro of registrosDebito){ //por cada registro en la lista añade un string de codigo HTML a la variable
+        for(const registro of registrosDebito){ //por cada registro en la lista añade un string de codigo HTML a la variable
             registrosDebitoHTML +=`
                                 <div class="accordion listaRegistros" id="accordionExample">
                                     <div class="card">
@@ -51,7 +51,7 @@ function stringCuentaHTML(cuenta){
 
             `
         }
-        for(registro of registrosCredito){//por cada registro en la lista añade un string de codigo HTML a la variable
+        for(const registro of registrosCredito){//por cada registro en la lista añade un string de codigo HTML a la variable
             let contador=1
             registrosCreditoHTML +=`
                                 <div class="accordion listaRegistros" id="accordionExample">
