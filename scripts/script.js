@@ -241,9 +241,8 @@ function registrarCuenta(cuenta){
 }
 
 function generarFecha(){//genera una cadena con la fecha y lo retorna
-    let date = new Date()
-    let output = String(date.getDate()).padStart(2, '0') + '/' + String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear()
-    return(output)
+    const dateTime=luxon.DateTime.now()
+    return dateTime.toISODate()
 }
 
 function crearRegistro(monto, descripcion, codigo){  //  crea y retorna un nuevo registro

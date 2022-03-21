@@ -10,14 +10,6 @@ function capturarDatosCrearCuenta(){
 let btnCrearCuenta = document.getElementById("btn-crearCuenta")
 btnCrearCuenta.addEventListener("click", () => {
 
-    /* Swal.fire({
-        title: "Hola",
-        text: "Texto hola", 
-        icon: "success"
-    }) */
-
-
-
     /* Toastify({
         text: "This is a toast",
         className: "info",
@@ -26,10 +18,6 @@ btnCrearCuenta.addEventListener("click", () => {
         }
     }).showToast(); */
     
-
-    /* const dateTime=luxon.DateTime.local(2017, 5, 15, 8, 30);
-    alert(dateTime) */
-
     //guardo los datos de los imputs en la variable datos
     let datos = capturarDatosCrearCuenta()
 
