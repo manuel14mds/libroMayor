@@ -18,9 +18,13 @@ function validarDatosObjeto(obj){ //me validara si un objeto esta con los valore
 function validarCamposLista(lista){
     let nuevaLista=[]
     for(const obj of lista){
-        if(validarDatosObjeto(obj)){
+        /* if(validarDatosObjeto(obj)){
             nuevaLista.push(obj)
-        }
+        } */
+
+        //Operadores avanzados, remplaza el codigo comentado arriba
+        validarDatosObjeto(obj) && nuevaLista.push(obj)
+
     }
     return nuevaLista
 }
@@ -90,7 +94,6 @@ btnEnviarTransaccion.addEventListener("click", () => {
 
     //valido si la lista  tiene por lo menos dos cuentas llenas
     if(lista.length < 2){
-        alert("Por lo menos deben estar dos cuentas funcionando correctamente")
         //SweetAlert
         Swal.fire({
             title: "Operacion Invalida",
