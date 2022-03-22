@@ -278,7 +278,6 @@ btnMostrarCuenta.addEventListener("click", () => {
 
     let codigo = obtenerCodigoCuenta()
     let cuenta = obtenerCuenta(codigo, capturarInfoStotage())
-    console.log("mostrar: "+cuenta)
 
     let contenedorMostrar = document.getElementById("cuenta")
     contenedorMostrar.textContent = ""
