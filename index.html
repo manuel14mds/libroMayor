@@ -30,13 +30,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#cuentasMov">Cuentas Movimientos</a>
+                        <a class="nav-link" href="#crearCuenta">Crear Cuenta</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="#transaccion">Crear Transaccion</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#crearCuenta">Crear Cuenta</a>
+                        <a class="nav-link" href="#cuentasMov">Cuentas Movimientos</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="#mostrarCuenta">Mostrar Cuenta</a>
@@ -52,33 +52,27 @@
     <main>
         <section class="jumbotron container-sm">
             <h1 class="display-4">Accounting software</h1>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its
-                parent.</p>
+            <p class="lead">Gestiona los asientos contables del libro mayor con AccSoft! Puedes registrar cuentas y automaticamente te la organiza en su respectivo grupo, crear transacciones entre varias cuentas, mirar el detalle de cada cuenta asi como el detalle de cada registro y puedes ver las listas de todas las cuentas registradas como las que ya tienen movimientos.</p>
         </section>
 
-        <section id="cuentasMov" class="cuentasMov container-sm">
-            <h3>Lista de Cuentas Con Movimientos</h3>
-            <div class="lista">
-                <div class="row encabezado">
-                    <div class="col titulo">
-                        <p>Cuentas</p>
-                    </div>
-                    <div class="botones col">
-                        <button id="btn-reload-movimientos" class="btn-reload"><i class="fa-solid fa-arrow-rotate-right"></i></button>
-                        <button id="btn-close-movimientos" class="btn-close"><i class="fa-solid fa-xmark"></i></button>
-                    </div>
+        <section id="crearCuenta" class="crearCuenta container-sm">
+            <h3>Crear cuenta</h3>
+            <form id="formCrearCuenta">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Código De Cuenta</label>
+                    <input type="text" class="form-control" id="codigoCrearCuenta" required>
                 </div>
-                <!-- En este contenedor se insertarán todas las listas de cada grupo  -->
-                <div id="contenidoListasMovimientos" class="contenidoListas">
-
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Nombre De Cuenta</label>
+                    <input type="text" class="form-control" id="nombreCrearCuenta" required>
                 </div>
-            </div>
-
+                <button id="btn-crearCuenta" type="button" class="btn btn-light btnCrearCuenta">Registrar</button>
+            </form>
         </section>
 
         <section id="transaccion" class="transaccion container-sm">
             <div class="TransInfo">
-                <h3>Transaccion</h3>
+                <h3>Transacción</h3>
             </div>
             <form action="" id="formTransaccion">
 
@@ -177,19 +171,24 @@
 
         </section>
 
-        <section id="crearCuenta" class="crearCuenta container-sm">
-            <h3>Crear cuenta</h3>
-            <form id="formCrearCuenta">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Código De Cuenta</label>
-                    <input type="text" class="form-control" id="codigoCrearCuenta" required>
+        <section id="cuentasMov" class="cuentasMov container-sm">
+            <h3>Lista de Cuentas Con Movimientos</h3>
+            <div class="lista">
+                <div class="row encabezado">
+                    <div class="col titulo">
+                        <p>Cuentas</p>
+                    </div>
+                    <div class="botones col">
+                        <button id="btn-reload-movimientos" class="btn-reload"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+                        <button id="btn-close-movimientos" class="btn-close"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Nombre De Cuenta</label>
-                    <input type="text" class="form-control" id="nombreCrearCuenta" required>
+                <!-- En este contenedor se insertarán todas las listas de cada grupo  -->
+                <div id="contenidoListasMovimientos" class="contenidoListas">
+
                 </div>
-                <button id="btn-crearCuenta" type="button" class="btn btn-light btnCrearCuenta">Registrar</button>
-            </form>
+            </div>
+
         </section>
 
         <section id="mostrarCuenta" class="mostrarCuenta container-sm">
@@ -198,8 +197,8 @@
                 <p>Digite el numero de cuenta a buscar</p>
                 <form id="formMostrarCuenta" class="form-inline row" >
                     <label class="col-sm-4" for="text">Código</label>
-                    <input type="text" class="form-control col-sm-4" placeholder="Ingrese código" id="codigoMostrarCuenta" >
-                    <button type="button" class="btn btn-primary col-sm-4"
+                    <input type="text" class="form-control col-sm-4" placeholder="Ingrese código" id="codigoMostrarCuenta" required >
+                    <button type="button" class="btn btn-light col-sm-4"
                         data-target="#cuenta" id="btn-mostrarCuenta">Buscar</button>
                 </form>
 
@@ -239,7 +238,7 @@
             <div class="text col-sm-4">
                 <p>Proyecto realizado por Manuel Florez con fines academicos. 2022</p>
             </div>
-            <div class="nav col">
+            <div class="nav navbar col">
                 <a class="nav-link" href="#">Inicio</a>
                 <a class="nav-link" href="#cuentasMov">Cuentas Movimientos</a>
                 <a class="nav-link" href="#transaccion">Crear Transaccion</a>

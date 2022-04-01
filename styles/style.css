@@ -2,6 +2,12 @@
 
 
 */
+/* Fondo */
+/* Navs y Foot */
+/* Jumbo */
+/*  */
+/* Trans */
+/* Crear Cuenta */
 * {
   font-family: 'Times New Roman', Times, serif;
   scroll-behavior: smooth;
@@ -12,11 +18,11 @@ body {
           box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-  background-color: #93B5C6;
+  background-color: #212121;
 }
 
 body header .navbar {
-  background-color: #C9CCD5 !important;
+  background-color: #6D9886 !important;
 }
 
 body header .navbar .collapse {
@@ -27,22 +33,24 @@ body header .navbar .collapse {
 }
 
 body header .navbar .collapse .navbar-nav {
-  background-color: #e4e4e4 !important;
+  background-color: #D9CAB3 !important;
 }
 
 body main .jumbotron {
   margin-bottom: 0.5rem;
+  background-color: #F6F6F6;
+  color: #6D9886;
 }
 
 body main .cuentasMov {
-  background-color: #e4e4e4;
+  background-color: #D9CAB3;
   border-radius: 5px;
   padding: 1rem;
   margin-bottom: 0.5rem;
 }
 
 body main .cuentasMov .lista {
-  border: 1px solid #979797;
+  border: 1px solid #6D9886;
   max-height: 250px;
   overflow-y: scroll;
 }
@@ -55,6 +63,7 @@ body main .cuentasMov .lista .encabezado {
 body main .cuentasMov .lista .encabezado .titulo {
   margin-bottom: 5px;
   border: 0px;
+  font-size: 1.3rem;
 }
 
 body main .cuentasMov .lista .encabezado .titulo p {
@@ -98,10 +107,10 @@ body main .cuentasMov .lista .contenidoListas .cabezaLista {
 }
 
 body main .cuentasMov .lista .contenidoListas .cabezaLista div {
-  background-color: #979797;
-  border: 1px #e4e4e4 solid;
+  background-color: #6D9886;
+  border: 1px #D9CAB3 solid;
   border-radius: 5px;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 body main .cuentasMov .lista .contenidoListas .filaLista {
@@ -110,7 +119,7 @@ body main .cuentasMov .lista .contenidoListas .filaLista {
 }
 
 body main .cuentasMov .lista .contenidoListas .filaLista div {
-  border: 1.5px #e4e4e4 dotted;
+  border: 1.5px #D9CAB3 dotted;
   font-size: 0.7rem;
   background-color: white;
 }
@@ -132,14 +141,18 @@ body main .cuentasMov .lista .contenidoListas .sinMovimientos p {
 }
 
 body main .transaccion {
-  background-color: #979797;
+  background-color: #6D9886;
   border-radius: 5px;
   padding: 1rem;
   margin-bottom: 0.5rem;
 }
 
+body main .transaccion form {
+  color: #D9CAB3;
+}
+
 body main .transaccion form .row {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   border-style: dashed none none none;
   border-width: 1px;
 }
@@ -181,14 +194,14 @@ body main .transaccion form .descripcion {
 }
 
 body main .crearCuenta {
-  background-color: #e4e4e4;
+  background-color: #D9CAB3;
   border-radius: 5px;
   padding: 1rem;
   margin-bottom: 0.5rem;
 }
 
 body main .mostrarCuenta {
-  background-color: #979797;
+  background-color: #6D9886;
   border-radius: 5px;
   padding: 1rem;
   margin-bottom: 0.5rem;
@@ -199,15 +212,16 @@ body main .mostrarCuenta p {
 }
 
 body main .mostrarCuenta form {
-  background-color: #93B5C6;
+  background-color: #212121;
 }
 
 body main .mostrarCuenta form label {
   text-align: center;
+  color: #D9CAB3;
 }
 
 body main .mostrarCuenta .cuenta {
-  background-color: #e4e4e4;
+  background-color: #D9CAB3;
   border: 3px solid black;
   border-radius: 4px;
   display: -webkit-box;
@@ -271,11 +285,10 @@ body main .mostrarCuenta .cuenta .contenido {
 body main .mostrarCuenta .cuenta .contenido .ladoDebito {
   height: 100%;
   padding: 0;
-  /* ContenedorRegisto antiguo 2 */
 }
 
 body main .mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro {
-  background-color: #93B5C6;
+  background-color: #c3ddfa;
   border: 1px solid gray;
   width: 100%;
   margin: 0;
@@ -299,7 +312,7 @@ body main .mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .tit
 }
 
 body main .mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .output {
-  background-color: #C9CCD5;
+  background-color: #F6F6F6;
   height: 200px;
   overflow-y: scroll;
   margin: 0px;
@@ -335,7 +348,6 @@ body main .mostrarCuenta .cuenta .contenido .ladoDebito .contenedorRegistro .sal
 body main .mostrarCuenta .cuenta .contenido .ladoCredito {
   height: 100%;
   padding: 0;
-  /* ContenedorRegisto antiguo 2 */
 }
 
 body main .mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro {
@@ -363,7 +375,7 @@ body main .mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .ti
 }
 
 body main .mostrarCuenta .cuenta .contenido .ladoCredito .contenedorRegistro .output {
-  background-color: #E4D8DC;
+  background-color: #F6F6F6;
   height: 200px;
   overflow-y: scroll;
   margin: 0px;
@@ -439,14 +451,14 @@ body main .mostrarCuenta .cuenta .cuentaInexistente .btn-close:hover {
 }
 
 body main .listaCuentas {
-  background-color: #e4e4e4;
+  background-color: #D9CAB3;
   border-radius: 5px;
   padding: 1rem;
   margin-bottom: 0.5rem;
 }
 
 body main .listaCuentas .lista {
-  border: 1px solid #979797;
+  border: 1px solid #6D9886;
   max-height: 250px;
   overflow-y: scroll;
 }
@@ -497,7 +509,7 @@ body main .listaCuentas .lista .encabezado .botones .btn-close:hover {
 }
 
 body main .listaCuentas .lista .contenidoListas .grupo {
-  background-color: #93B5C6;
+  background-color: #212121;
   padding: 0;
   margin: 1px 0px 1px 0px;
   display: inline-block;
@@ -508,6 +520,7 @@ body main .listaCuentas .lista .contenidoListas .grupo p {
   padding: 0px;
   margin: 0px;
   text-align: center;
+  color: #D9CAB3;
 }
 
 body main .listaCuentas .lista .contenidoListas .cabezaLista {
@@ -516,8 +529,8 @@ body main .listaCuentas .lista .contenidoListas .cabezaLista {
 }
 
 body main .listaCuentas .lista .contenidoListas .cabezaLista div {
-  background-color: #979797;
-  border: 1px #e4e4e4 solid;
+  background-color: #6D9886;
+  border: 1px #D9CAB3 solid;
   border-radius: 5px;
   font-size: 0.7rem;
 }
@@ -528,21 +541,31 @@ body main .listaCuentas .lista .contenidoListas .filaLista {
 }
 
 body main .listaCuentas .lista .contenidoListas .filaLista div {
-  border: 1.5px #e4e4e4 dotted;
+  border: 1.5px #D9CAB3 dotted;
   font-size: 0.7rem;
   background-color: white;
 }
 
 body footer {
-  background-color: #C9CCD5;
+  background-color: #6D9886;
 }
 
 body footer div .text {
   padding: 1.5rem;
+  color: #D9CAB3;
 }
 
 body footer div .navbar {
-  font-size: 0.5rem !important;
+  text-decoration: none;
+  font-size: 1rem;
   padding: 1.5rem;
+}
+
+body footer div .navbar a {
+  color: #F6F6F6;
+}
+
+body footer div .navbar a:hover {
+  color: #212121;
 }
 /*# sourceMappingURL=style.css.map */

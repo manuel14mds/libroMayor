@@ -6,18 +6,7 @@ function capturarDatosCrearCuenta(){
     return {codigo : nuevoCodigoCuenta, nombre : nuevoNombreCuenta}
 }
 
-// Evento para el botón Enviar del formulario Transacciones 
-let btnCrearCuenta = document.getElementById("btn-crearCuenta")
-btnCrearCuenta.addEventListener("click", () => {
-
-    /* Toastify({
-        text: "This is a toast",
-        className: "info",
-        style: {
-        background: "linear-gradient(to right, #00b09b, #96c93d)",
-        }
-    }).showToast(); */
-    
+function guardarDatosNuevaCuenta(){
     //guardo los datos de los imputs en la variable datos
     let datos = capturarDatosCrearCuenta()
 
@@ -46,5 +35,20 @@ btnCrearCuenta.addEventListener("click", () => {
         //Me limpia los campos del formulario
         document.getElementById("formCrearCuenta").reset()
     }
+}
+
+// Evento para el botón Enviar del formulario Transacciones
+let btnCrearCuenta = document.getElementById("btn-crearCuenta")
+btnCrearCuenta.addEventListener("click", () => {
+    guardarDatosNuevaCuenta()
+})
+
+// Evento para el enter-teclado del formulario Transacciones
+let enterCrearCuenta = document.getElementById("nombreCrearCuenta")
+enterCrearCuenta.addEventListener("keydown", (event) => {
     
+    if(event.which === 13){
+        event.preventDefault();
+        guardarDatosNuevaCuenta()
+    }
 })

@@ -5,7 +5,7 @@ function stringCuentaHTML(cuenta){
     if(cuenta == null){  // Si la cuenta no existe en los arrays de grupos de cuentas
         string=`
                 <div class="cuentaInexistente">
-                    <button class="btn-close"><i class="fa-solid fa-xmark"></i></button>
+                    <button id="btn-close-mostarCuenta" class="btn-close"><i class="fa-solid fa-xmark"></i></button>
                     <p>
                         La Cuenta No Está Registrada. Revisa la <a href="#listaCuentas">lista </a> de 
                         cuentas que ya estan registradas o por el contrario <a href="#crearCuenta">Creala</a>
@@ -243,39 +243,8 @@ function obtenerCodigoCuenta(){
     return document.getElementById("codigoMostrarCuenta").value
 }
 
-// Evento para el botón buscar de (Mostrar Cuenta)
-/* let enterMostrarCuenta = document.getElementById("codigoMostrarCuenta")
-enterMostrarCuenta.addEventListener("keydown", (event) => {
-    
-    event.preventDefault();
-    if(event.which === 13){
-
-        let codigo = obtenerCodigoCuenta()
-        let cuenta = obtenerCuenta(codigo)
-
-        let contenedorMostrar = document.getElementById("cuenta")
-        contenedorMostrar.textContent = ""
-        let nombreHTML = document.createElement("div")
-
-        nombreHTML.innerHTML= stringCuentaHTML(cuenta)
-        contenedorMostrar.appendChild(nombreHTML)
-
-        //limpia el texto ingresado de la casilla input
-        document.getElementById("formMostrarCuenta").reset()
-
-        let btnCerrarMostrarCuenta = document.getElementById("btn-close-mostarCuenta")
-        btnCerrarMostrarCuenta.addEventListener("click", () => {
-        let contMostrar = document.getElementById("cuenta")
-        contMostrar.textContent = ""
-    })
-    }
-
-}) */
-
-
-let btnMostrarCuenta = document.getElementById("btn-mostrarCuenta")
-btnMostrarCuenta.addEventListener("click", () => {
-
+//dibuja la cuenta con el codigo obtenido del imput en la pagina
+function dibujarCuenta(){
     let codigo = obtenerCodigoCuenta()
     let cuenta = obtenerCuenta(codigo, capturarInfoStotage())
 
@@ -294,5 +263,21 @@ btnMostrarCuenta.addEventListener("click", () => {
     let contMostrar = document.getElementById("cuenta")
     contMostrar.textContent = ""
     })
+}
+
+// Evento para el botón enter-teclado de (Mostrar Cuenta)
+let enterMostrarCuenta = document.getElementById("codigoMostrarCuenta")
+enterMostrarCuenta.addEventListener("keydown", (event) => {
+    
+    if(event.which === 13){
+        event.preventDefault();
+        dibujarCuenta()
+    }
+})
+
+// Evento para el botón buscar de (Mostrar Cuenta)
+let btnMostrarCuenta = document.getElementById("btn-mostrarCuenta")
+btnMostrarCuenta.addEventListener("click", () => {
+    dibujarCuenta()
 })
 

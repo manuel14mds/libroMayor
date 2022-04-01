@@ -11,13 +11,13 @@ function stringListaHTML(){
 
         string += `
         <div class="grupo row container-fluid ">
-        <p>${nombreCuentas[i]}</p>
+            <p>${nombreCuentas[i]}</p>
         </div>
         <!-- Encabezado de lista -->
         <div class="cabezaLista row container-fluid">
-        <div class="col">Código</div>
-        <div class="col">Nombre</div>
-        <div class="col">Saldo Total</div>
+            <div class="col">Código</div>
+            <div class="col">Nombre</div>
+            <div class="col">Saldo Total</div>
         </div>
         
         `

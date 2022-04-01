@@ -2,12 +2,12 @@
 
 
 */
-$color1: #93B5C6;
-$color2: #C9CCD5;
-$color3: #E4D8DC;
-$color4: #FFE3E3;
-$color5: #979797;
-$color6: #e4e4e4;
+$color1: #212121;/* Fondo */
+$color2: #6D9886;/* Navs y Foot */
+$color3: #F6F6F6;/* Jumbo */
+$color4: #FFE3E3;/*  */
+$color5: #6D9886;/* Trans */
+$color6: #D9CAB3;/* Crear Cuenta */
 *{
     font-family: 'Times New Roman', Times, serif;
     scroll-behavior: smooth;
@@ -36,6 +36,8 @@ body {
 
         .jumbotron{
             margin-bottom: 0.5rem;
+            background-color: $color3;
+            color: $color5;
         }
 
         .cuentasMov{//lista de cuentas con movimientos
@@ -56,6 +58,7 @@ body {
                     .titulo{
                         margin-bottom: 5px;
                         border: 0px;
+                        font-size: 1.3rem;
 
                         p{
                             padding: 0.15rem;
@@ -95,7 +98,7 @@ body {
                             background-color: $color5;
                             border: 1px $color6 solid;
                             border-radius: 5px;
-                            font-size: 0.7rem;
+                            font-size: 0.8rem;
                         }
                     }
                     .filaLista{  // esta es la fila de los datos a mostrar
@@ -132,9 +135,10 @@ body {
             margin-bottom: 0.5rem;
             
             form{
+                color: $color6;
                 .row{
     
-                    font-size: 0.7rem;
+                    font-size: 0.8rem;
                     border-style: dashed none none none;
                     border-width: 1px;
                     .col-sm-5{
@@ -185,6 +189,7 @@ body {
                 background-color: $color1;
                 label{
                     text-align: center;
+                    color: $color6;
                 }
             }
 
@@ -236,10 +241,9 @@ body {
                     .ladoDebito{
                         height: 100%;
                         padding: 0;
-                        /* ContenedorRegisto antiguo 2 */
 
                         .contenedorRegistro {
-                            background-color: $color1;
+                            background-color: #c3ddfa;
                             border: 1px solid gray;
                             width: 100%;
                             margin: 0;
@@ -253,9 +257,10 @@ body {
                                 font-size: 0.7rem;
                                 height: 30px;
                             }
+                            
                             /* Lista de registros debito */
                             .output {
-                                background-color: $color2;
+                                background-color: $color3;
                                 height: 200px;
                                 overflow-y: scroll;
                                 margin: 0px;
@@ -294,7 +299,6 @@ body {
                     .ladoCredito{
                         height: 100%;
                         padding: 0;
-                        /* ContenedorRegisto antiguo 2 */
 
                         .contenedorRegistro {
                             background-color: $color4;
@@ -457,6 +461,7 @@ body {
                             padding: 0px;
                             margin: 0px;
                             text-align: center;
+                            color: $color6;
                         }
                     }
 
@@ -491,10 +496,21 @@ body {
         div{
             .text{
                 padding: 1.5rem;
+                color: $color6;
             }
             .navbar{
-                font-size: 0.5rem !important;
+                text-decoration: none;
+                font-size: 1rem;
                 padding: 1.5rem;
+
+                a{
+                    color: $color3;
+                }
+                
+                a:hover{
+                    color: $color1;
+
+                }
             }
         }
     }
