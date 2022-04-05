@@ -9,6 +9,7 @@ function validarDatosObjeto(obj){ //me validara si un objeto esta con los valore
     }else if(obj.operacion == null){
         return false
     }else{
+        console.log(obj)
         return true
     }
 }
@@ -18,7 +19,7 @@ function validarDatosObjeto(obj){ //me validara si un objeto esta con los valore
 function validarCamposLista(lista){
     let nuevaLista=[]
     for(const obj of lista){
-        /* if(validarDatosObjeto(obj)){
+/*         if(validarDatosObjeto(obj)){
             nuevaLista.push(obj)
         } */
 

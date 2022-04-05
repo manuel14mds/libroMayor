@@ -1,0 +1,8 @@
+[
+    [{"codigo":"11","nombre":"disponible","naturaleza":"DEBITO","debito":[],"saldoDebito":0,"credito":[],"saldoCredito":0,"saldoTotal":null}],
+    [{"codigo":"21","nombre":"obligaciones financieras","naturaleza":"CREDITO","debito":[],"saldoDebito":0,"credito":[],"saldoCredito":0,"saldoTotal":null}],
+    [{"codigo":"31","nombre":"capital social","naturaleza":"CREDITO","debito":[],"saldoDebito":0,"credito":[],"saldoCredito":0,"saldoTotal":null}],
+    [],
+    [],
+    []
+]

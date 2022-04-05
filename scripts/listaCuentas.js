@@ -5,9 +5,10 @@ function stringListaHTML(){
     let string=""
     let nombreCuentas=["Activos", "Pasivos", "Patrimonio", "Ingresos", "Gastos", "Costos"]
     let agrupacionLista = capturarInfoStotage()
+    let saldoTotal = "Ø"
 
     let i=0 //contador
-    for(lista of agrupacionLista){
+    for(const lista of agrupacionLista){
 
         string += `
         <div class="grupo row container-fluid ">
@@ -21,12 +22,20 @@ function stringListaHTML(){
         </div>
         
         `
-        for(cuenta of lista){
+        for(const cuenta of lista){
+
+            // si la cuenta nunca ha sido saldada, se representará con el valor vacio(Ø)
+            if(cuenta.saldoTotal != null){
+                saldoTotal = cuenta.saldoTotal
+            }else{
+                saldoTotal = "Ø"
+            }
+
             string+=`
             <div id="filaLista" class="filaLista row container-fluid">
                 <div class="col">${cuenta.codigo}</div>
                 <div class="col">${cuenta.nombre}</div>
-                <div class="col">${cuenta.saldoTotal}</div>
+                <div class="col">${saldoTotal}</div>
             </div>
             
             `

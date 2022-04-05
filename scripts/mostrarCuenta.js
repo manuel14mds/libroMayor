@@ -1,20 +1,25 @@
-
 //crea y retorna con string con el HTML a insertar 
 function stringCuentaHTML(cuenta){
     let string
+
+    
     if(cuenta == null){  // Si la cuenta no existe en los arrays de grupos de cuentas
         string=`
-                <div class="cuentaInexistente">
-                    <button id="btn-close-mostarCuenta" class="btn-close"><i class="fa-solid fa-xmark"></i></button>
-                    <p>
-                        La Cuenta No Está Registrada. Revisa la <a href="#listaCuentas">lista </a> de 
-                        cuentas que ya estan registradas o por el contrario <a href="#crearCuenta">Creala</a>
-                    </p>
-                </div>
+        <div class="cuentaInexistente">
+        <button id="btn-close-mostarCuenta" class="btn-close"><i class="fa-solid fa-xmark"></i></button>
+        <p>
+        La Cuenta No Está Registrada. Revisa la <a href="#listaCuentas">lista </a> de 
+        cuentas que ya estan registradas o por el contrario <a href="#crearCuenta">Creala</a>
+        </p>
+        </div>
         `
     }
     else{ // Si la cuenta SI existe en los arrays de grupos de cuentas
-
+        let saldoTotal = "Ø"
+        if(cuenta.saldoTotal != null){
+            saldoTotal = cuenta.saldoTotal
+        }
+        
         let registrosDebito = cuenta.debito //le asigno la lista de registros DEBITOS que tiene esa cuenta
         let registrosCredito = cuenta.credito //le asigno la lista de registros CREDITOS que tiene esa cuenta
         
@@ -152,7 +157,7 @@ function stringCuentaHTML(cuenta){
                         <div class="row container">
 
                         <!-- ###################  SALDO TOTAL ###########################  -->                    
-                            <p class="saldoIzquierda col">${cuenta.saldoTotal}</p>
+                            <p class="saldoIzquierda col">${saldoTotal}</p>
                             <p class="saldoDerecha col"></p>
                         </div>
                     </div>
@@ -227,7 +232,7 @@ function stringCuentaHTML(cuenta){
 
                         <!-- ###################  SALDO TOTAL ###########################  -->                    
                             <p class="saldoIzquierda col"></p>
-                            <p class="saldoDerecha col">${cuenta.saldoTotal}</p>
+                            <p class="saldoDerecha col">${saldoTotal}</p>
                         </div>
                     </div>
         

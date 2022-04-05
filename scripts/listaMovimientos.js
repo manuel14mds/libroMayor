@@ -6,7 +6,8 @@ function stringMovimientosHTML(){
     if(lista.length < 1){
         string=`
                 <div class="sinMovimientos container">
-                    <p>No se registran cuentas con movimientos</p>
+                    <p>No se registran cuentas con movimientos, cree transacciones
+                        para que pueda ver reflejado en esta tista</p>
                 </div>
         `
     }else{
@@ -18,7 +19,7 @@ function stringMovimientosHTML(){
                     <div class="col">Saldo Total</div>
                 </div>
         `
-        for(item of lista){
+        for(const item of lista){
             string +=`
                 <div class="filaLista row container-fluid">
                     <div class="col">${item.codigo}</div>

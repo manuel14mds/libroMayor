@@ -5,7 +5,7 @@
 class Registro {
     constructor(codigo, fecha, monto, descripcion) {
         this.fecha = fecha
-        this.monto = monto
+        this.monto = parseFloat(monto)
         this.descripcion = descripcion
         this.codigo = codigo
     }
@@ -24,11 +24,11 @@ class Cuenta {
     }
     debitar(registro){
         this.debito.push(registro)
-        this.saldoDebito += Number(registro.monto)
+        this.saldoDebito += parseFloat(registro.monto)
     }
     acreditar(registro) {
         this.credito.push(registro)
-        this.saldoCredito += Number(registro.monto)
+        this.saldoCredito += parseFloat(registro.monto)
     }
     saldarCuenta() {
         if (this.naturaleza == "DEBITO") {//-- si la naturaleza es debito
@@ -285,20 +285,20 @@ function generarTransaccion(lista){
         nuevoRegistro=crearRegistro(obj.monto, obj.descripcion, nuevoCodigo)
         cuenta = obtenerCuenta(obj.codigo, listaTodasCuentas)
         if(obj.operacion == "DEBITAR"){
-            /* console.log(cuenta.saldoTotal)
+            /*
             cuenta.debitar(nuevoRegistro) */
             cuenta.debito.push(nuevoRegistro)
-            cuenta.saldoDebito += Number(nuevoRegistro.monto)
+            cuenta.saldoDebito += parseFloat(nuevoRegistro.monto)
         }else{
             /* cuenta.acreditar(nuevoRegistro) */
             cuenta.credito.push(nuevoRegistro)
-            cuenta.saldoCredito += Number(nuevoRegistro.monto)
+            cuenta.saldoCredito += parseFloat(nuevoRegistro.monto)
         }
         /* cuenta.saldarCuenta() */
         if (cuenta.naturaleza == "DEBITO") {//-- si la naturaleza es debito
-            cuenta.saldoTotal = cuenta.saldoDebito - cuenta.saldoCredito
+            cuenta.saldoTotal = parseFloat(cuenta.saldoDebito) - parseFloat(cuenta.saldoCredito)
         } else if(cuenta.naturaleza == "CREDITO"){// Si la naturaleza es credito
-            cuenta.saldoTotal = cuenta.saldoCredito - cuenta.saldoDebito
+            cuenta.saldoTotal = parseFloat(cuenta.saldoCredito) - parseFloat(cuenta.saldoDebito)
         }else{
             //SweetAlert
             Swal.fire({
@@ -320,40 +320,23 @@ function generarTransaccion(lista){
 
 
 
-//                                  ############       Listas       ################
-// Creacion lista de cuentas de activos
-const activos = [
-    new Cuenta("11", "disponible"),
-    new Cuenta("13", "deudores"),
-    new Cuenta("14", "inventarios"),
-    new Cuenta("191", "Agrupacion de activos no corrientes")
-]
-// Creacion lista de cuentas de pasivos
-const pasivos = [
-    new Cuenta("21", "obligaciones financieras"),
-    new Cuenta("22", "proveedores"),
-    new Cuenta("23", "cuentas por pagar")
-]
-// Creacion lista de cuentas de patrimonio
-const patrimonio = [
-    new Cuenta("31", "capital social"),
-    new Cuenta("36", "Resultado del ejercisio"),
-    new Cuenta("33", "reservas")
-]
-// Creacion lista de cuentas de ingresos
-const ingresos = []
-// Creacion lista de cuentas de gastos
-const gastos = []
-// Creacion lista de cuentas de costo de ventas
-const costos = []
-
-
-
-//grupo de todas las cuentas
+//cargo los datos del archivo info.json
 
 if(JSON.parse(localStorage.getItem("GrupoCuentas")) == null){
-    const listaGrupo=[activos, pasivos, patrimonio, ingresos, gastos, costos]
-    actualizarInfoStrorage(listaGrupo)
+    try{
+        /* let url = "http://127.0.0.1:5501/info.json" */
+        let url = "./info.json"
+        fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+            actualizarInfoStrorage(data)
+        })
+
+    }catch(error){
+        console.error(error);
+    }
+    /* const listaGrupo=[activos, pasivos, patrimonio, ingresos, gastos, costos]
+    actualizarInfoStrorage(listaGrupo) */
 }
 
 
