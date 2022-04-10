@@ -1,0 +1,26 @@
+
+Estas son preguntas que me hicieron los compañeros a quienes les pedí que revisara la pagina.
+También hicieron observaciones que ya he corregido.
+
+
+
+- De qué se trata este proyecto?
+	Rpt/ Este proyecto es una herramienta para registrar asientos contables.
+
+- Qué tipo de asientos contables?
+	Rpt/ Registra las transacciones entre cuentas y al ver el detalle de cada cuenta la muestra como una cuenta T del libro mayor de contabilidad.
+
+- Se utiliza solo para pasar los asientos del libro diario y pasarlo al libro mayor?
+	Rpt/  Mejor, se utiliza para anotar las transacciones entre las cuentas como el libro diario y AUTOMATICAMENTE Hace los registros pertinentes en las cuentas T del libro mayor.
+
+- El libro diario es mejor porque tiene el detalle de las fechas de cada transacción
+	Rpt/ Al darle clic en el monto de la cuenta T te muestra el detalle de la fecha y descripción de ese monto.
+
+- Por qué al crear la cuenta no aparece en la Lista De Cuentas Con Movimientos?
+	Rpt/  La Lista De Cuentas Con Movimientos solo se mostrarán las cuentas que ya han sido transadas. Primero se debe hacer una transacción en la que intervenga esa cuenta.
+
+- Por qué me deja registar montos con saldos negativos?
+	Rpt/ Si, así debe ser ya que de esa manera se hacen los ajustes en contabilidad.
+
+- Por qué sale este error? ---- Solo puede ingresar codigo del grupo de cuentas de la 1 a la 6
+	Rpt/ El proyecto contempla que el codigo de cuentas corresponda a el gupo de cuentas a partir de Activos(1) hasta Costos(6)

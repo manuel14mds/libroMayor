@@ -95,12 +95,22 @@ btnEnviarTransaccion.addEventListener("click", () => {
 
     //valido si la lista  tiene por lo menos dos cuentas llenas
     if(lista.length < 2){
-        //SweetAlert
-        Swal.fire({
-            title: "Operacion Invalida",
-            text: "La transaccion deben afectar por lo menos dos cuentas, revise los campos ", 
-            icon: "warning"
-        })
+        //Toastify
+        let nodo = document.getElementById("transToas")
+        Toastify({
+            text: "La transaccion deben afectar por lo menos dos cuentas, revise los campos",
+            duration: 4000,
+            selector: nodo,
+            close: false,
+            gravity: "bottom", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+                color: "#D9CAB3",
+                background: "#212121",
+            },
+            onClick: function () { } // Callback after click
+        }).showToast();
     }else{
 
         //valido si las cuentas ya estan creadas

@@ -17,7 +17,7 @@ function stringCuentaHTML(cuenta){
     else{ // Si la cuenta SI existe en los arrays de grupos de cuentas
         let saldoTotal = "Ø"
         if(cuenta.saldoTotal != null){
-            saldoTotal = cuenta.saldoTotal
+            saldoTotal = formatoEntero(Number(cuenta.saldoTotal))
         }
         
         let registrosDebito = cuenta.debito //le asigno la lista de registros DEBITOS que tiene esa cuenta
@@ -33,7 +33,7 @@ function stringCuentaHTML(cuenta){
                                             <h2 class="mb-0">
                                                 <button class="btn btn-link btn-block " type="button" data-toggle="collapse"
                                                 data-target="#collapse${registro.codigo}" aria-expanded="true" aria-controls="collapseOne">
-                                                ${registro.monto}
+                                                ${formatoEntero(Number(registro.monto))}
                                                 </button>
                                             </h2>
                                         </div>
@@ -65,7 +65,7 @@ function stringCuentaHTML(cuenta){
                                             <h2 class="mb-0">
                                                 <button class="btn btn-link btn-block" type="button" data-toggle="collapse"
                                                 data-target="#collapse${registro.codigo}" aria-expanded="true" aria-controls="collapseOne">
-                                                ${registro.monto}
+                                                ${formatoEntero(Number(registro.monto))}
                                                 </button>
                                             </h2>
                                         </div>
@@ -123,7 +123,7 @@ function stringCuentaHTML(cuenta){
                                 <div class="saldoDebito col">
                                     <p class="tituloSaldo">Saldo Debito:</p>
                                     <!-- ###################  SALDO DEBITO ###########################  -->
-                                    <p>${cuenta.saldoDebito}</p>
+                                    <p>${formatoEntero(Number(cuenta.saldoDebito))}</p>
                                 </div>
                             </div>
         
@@ -145,7 +145,7 @@ function stringCuentaHTML(cuenta){
                                 <div class="saldoCredito col">
                                     <p class="tituloSaldo">Saldo Credito:</p>
                                     <!-- ###################  SALDO CREDITO ###########################  -->
-                                    <p>${cuenta.saldoCredito}</p>
+                                    <p>${formatoEntero(Number(cuenta.saldoCredito))}</p>
                                 </div>
                             </div>
         
@@ -245,7 +245,29 @@ function stringCuentaHTML(cuenta){
 
 // me trae el valor del imput donde captura el codigo de la cuenta a mostrar
 function obtenerCodigoCuenta(){
-    return document.getElementById("codigoMostrarCuenta").value
+    let codigo = document.getElementById("codigoMostrarCuenta").value
+
+    if (codigo.trim() === "") {
+        
+        let nodo = document.getElementById("mostrarCuenta")
+        Toastify({
+            text: "Rellene los campos",
+            duration: 3000,
+            selector: nodo,
+            close: false,
+            gravity: "bottom", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+                color: "#D9CAB3",
+                background: "#212121",
+            },
+            onClick: function () { } // Callback after click
+        }).showToast();
+    } else{
+        return codigo
+    }
+    
 }
 
 //dibuja la cuenta con el codigo obtenido del imput en la pagina

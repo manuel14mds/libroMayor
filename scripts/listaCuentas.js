@@ -26,7 +26,7 @@ function stringListaHTML(){
 
             // si la cuenta nunca ha sido saldada, se representará con el valor vacio(Ø)
             if(cuenta.saldoTotal != null){
-                saldoTotal = cuenta.saldoTotal
+                saldoTotal = formatoEntero(Number(cuenta.saldoTotal))
             }else{
                 saldoTotal = "Ø"
             }

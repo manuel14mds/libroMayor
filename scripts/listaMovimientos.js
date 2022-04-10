@@ -20,11 +20,12 @@ function stringMovimientosHTML(){
                 </div>
         `
         for(const item of lista){
+            let saldo = formatoEntero(Number(item.saldoTotal))
             string +=`
                 <div class="filaLista row container-fluid">
                     <div class="col">${item.codigo}</div>
                     <div class="col">${item.nombre}</div>
-                    <div class="col">${item.saldoTotal}</div>
+                    <div class="col">${saldo}</div>
                 </div>
             `
         }
