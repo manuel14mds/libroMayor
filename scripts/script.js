@@ -111,11 +111,13 @@ function formatoEntero(numero) {
     
     numero = ""
     let contador = 0
-    for (const num of nueva) {
-        numero += num
+    for (let i = 0; i<nueva.length; i++) {
+        numero += nueva[i]
         contador++
         if (contador >= 3) {
-            numero += "."
+            if(i!=nueva.length-1){
+                numero += "."
+            }
             contador = 0
         }
     }
